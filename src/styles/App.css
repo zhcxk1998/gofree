@@ -1,0 +1,250 @@
+/*偏好modal*/
+.preference_card {
+  margin-top: 18px !important;
+  opacity: 1;
+  cursor:pointer;
+}
+
+.preference_card:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+
+/*自动补全*/
+.react-autosuggest__container {
+  position: relative;
+}
+
+.react-autosuggest__input--focused {
+  outline: none;
+}
+
+.react-autosuggest__input--open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.react-autosuggest__suggestions-container {
+  display: none;
+  color: #333;
+}
+
+.react-autosuggest__suggestions-container--open {
+  display: block;
+  position: absolute;
+  width: 360px;
+  border: 1px solid #cce2ff;
+  background-color: #fff;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  z-index: 2;
+}
+
+.react-autosuggest__suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 10px 14px;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  background-color: #ddd;
+}
+
+/*时间选择*/
+
+.DayPicker-Day--today {
+  color: black;
+  font-weight: 700;
+}
+
+.DayPickerInput {
+  display: inline-block;
+}
+
+.DayPickerInput-OverlayWrapper {
+  position: relative;
+}
+
+.DayPickerInput-Overlay {
+  left: 0;
+  z-index: 1;
+  position: absolute;
+  background: #666;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.DayPicker:not(.DayPicker--interactionDisabled)
+  .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+  background-color: #51a0fa;
+  border-radius: 50%;
+}
+
+/*公有组件*/
+.ui.statistic:last-child {
+  padding-top: 8px;
+}
+body {
+  font-family: 'MicroSoft YaHei';
+}
+
+
+/*首页*/
+/**.welcome_div {
+  background-image: url('http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-hero_bg.jpg') !important;
+  opacity: 0.8;
+}**/
+.slogan_div {
+	float:left;
+	width:500px !important;
+}
+
+.slogan_form {
+	width: 430px !important;
+	height: 400px !important;
+	background-color: #EAECEE;
+  z-index: 0;
+	border-radius: 5px;
+	float:right;
+	padding: 5em 2em;
+	margin: 3.5em 1.5em 0 0;
+}
+
+.slogan_form_row {
+  margin-bottom: 2em !important;
+}
+
+.rec_content {
+  margin-bottom: 3em !important;
+  opacity: 1;
+  cursor:pointer;
+}
+
+.rec_content:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+
+/**路线**/
+.line_loading_div {
+  height: 600px;
+}
+
+.recline_body {
+  background-color: #F6F6F6;
+}
+
+.line_title_div {
+  padding: 0.5em 0 !important;
+}
+
+.line_title_main {
+  margin-bottom: 6px;
+  color: #453D3D;
+}
+
+.line_title_sub {
+  font-size: 14px !important;
+  color: #99A3A4 !important;
+}
+
+.line_list_div {
+    margin: 0 3em 3em 3em;
+    border: 1px #EAECEE solid;
+    padding: 0 2em 2em 2em;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 4px 2px 4px #888888;
+}
+
+.line_list_label {
+  font-size: 14px !important;
+  margin-left: 7px !important;
+}
+
+.line_detail_div {
+  border-top: 1px #333 solid;
+}
+
+.recline_map {
+  height: 600px;
+}
+
+.line_info_div {
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 1px #CACFD2 solid;
+}
+
+.line_grid_row {
+  padding: 0.2em 0 !important;
+}
+
+.place_refresh_div {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.place_total {
+  font-size: 18px;
+}
+
+.place_total img {
+  display: inline-block !important;
+  margin-right: 15px;
+  width: 50px;
+}
+
+.place_tags {
+  margin-left: 60px;
+}
+
+.place_text {
+  margin: 20px 0 20px 60px;
+  font-size: 14px;
+  line-height: 18px;
+  max-height: 90px;
+  display: -webkit-box;   
+  -webkit-box-orient: vertical;   
+  -webkit-line-clamp: 5;   
+  overflow: hidden;  
+}
+
+.place_imgs {
+  margin-left: 60px;
+}
+
+.place_imgs img {
+  width: 22% !important;
+  border-radius: 4px;
+  margin-right: 8px !important;
+}
+
+.line_div {
+  margin: 40px auto; 
+}
+
+.line_div img {
+  display: inline-block !important;
+  margin-right: 15px;
+  width: 50px;
+}
+
+.place_div_modal {
+  width: 90%;
+  margin: 1em auto;
+  padding-bottom: 2em;
+  border-bottom:1px #CACFD2 solid; 
+}
+
+
+
+
+
