@@ -23,7 +23,8 @@ module.exports = merge(common, {
   output: {
     filename: '[name].[chunkhash].js',
     path: path.resolve(root, 'dist'),
-    publicPath: '/'
+    // publicPath要设置为 ./ 不然打包之后页面显示空白
+    publicPath: './'
   },
 	devtool: 'source-map',
 	plugins: [
