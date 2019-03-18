@@ -36,7 +36,7 @@ export default class FixedMenu extends Component {
         {
           isInverted  ?  (
             <div>
-                <Menu size='large' inverted>
+                <Menu size='large' inverted style={{background:'transparent'}}>
                   <Container>
                     <Menu.Item as='a' href="#seg_0" active={activeMenu === 0} index={0} onClick={this.handleItemClick}>旅游定制</Menu.Item>
                     <Menu.Item as='a' href="#seg_1" active={activeMenu === 1} index={1} onClick={this.handleItemClick}>推荐城市</Menu.Item>
@@ -80,8 +80,8 @@ export default class FixedMenu extends Component {
                           </div>)
                           :(
                           <div>
-                              <Button as='a'  onClick={this.handleLoginClick}>登录</Button>
-                              <Button as='a'  onClick={this.handleRegisterClick}>注册</Button>
+                              <Button as='a' basic color="green" onClick={this.handleLoginClick}>登录</Button>
+                              <Button as='a' basic onClick={this.handleRegisterClick}>注册</Button>
                           </div>
                           )
                       }

@@ -140,10 +140,10 @@ gofree_mock.onGet('/get-line').reply(function(config){
               "description": "好地方啊好地方！！！！",
               "price": 10,
               "imgs": [
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg"
+                "http://cdn.algbb.fun/emoji/32.png",
+                "http://cdn.algbb.fun/emoji/32.png",
+                "http://cdn.algbb.fun/emoji/32.png",
+                "http://cdn.algbb.fun/emoji/32.png"
               ],
               "type": 0  //（0 景点  1 酒店 2 饭店）
             },
@@ -160,10 +160,10 @@ gofree_mock.onGet('/get-line').reply(function(config){
               "description": "好地方啊好地方！！！！",
               "price": 10,
               "imgs": [
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg"
+                "http://cdn.algbb.fun/emoji/32.png",
+                "http://cdn.algbb.fun/emoji/32.png",
+                "http://cdn.algbb.fun/emoji/32.png",
+                "http://cdn.algbb.fun/emoji/32.png"
               ],
               "type": 1  //（0 景点  1 酒店 2 饭店）
             },
@@ -180,10 +180,10 @@ gofree_mock.onGet('/get-line').reply(function(config){
               "description": "好地方啊好地方！！！！",
               "price": 10,
               "imgs": [
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg"
+                "http://cdn.algbb.fun/emoji/32.png",
+                "http://cdn.algbb.fun/emoji/32.png",
+                "http://cdn.algbb.fun/emoji/32.png",
+                "http://cdn.algbb.fun/emoji/32.png"
               ],
               "type": 2  //（0 景点  1 酒店 2 饭店）
             },
@@ -200,10 +200,10 @@ gofree_mock.onGet('/get-line').reply(function(config){
               "description": "好地方啊好地方！！！！",
               "price": 10,
               "imgs": [
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-                "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg"
+                "http://cdn.algbb.fun/emoji/32.png",
+                "http://cdn.algbb.fun/emoji/32.png",
+                "http://cdn.algbb.fun/emoji/32.png",
+                "http://cdn.algbb.fun/emoji/32.png"
               ],
               "type": 0  //（0 景点  1 酒店 2 饭店）
             }
@@ -248,10 +248,10 @@ gofree_mock.onGet('/get-more').reply(200, {
       "description": "好地方啊好地方！！！！",
       "price": 10,
       "imgs": [
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg"
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png"
       ],
       "type": 0
     },
@@ -268,10 +268,10 @@ gofree_mock.onGet('/get-more').reply(200, {
       "description": "好地方啊好地方！！！！",
       "price": 10,
       "imgs": [
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg"
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png"
       ],
       "type": 0
     },
@@ -288,10 +288,10 @@ gofree_mock.onGet('/get-more').reply(200, {
       "description": "好地方啊好地方！！！！",
       "price": 10,
       "imgs": [
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg"
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png"
       ],
       "type": 0
     },
@@ -308,10 +308,10 @@ gofree_mock.onGet('/get-more').reply(200, {
       "description": "好地方啊好地方！！！！",
       "price": 10,
       "imgs": [
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg"
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png"
       ],
       "type": 0
     }
@@ -420,10 +420,10 @@ gofree_mock.onPost('/refresh-all').reply(200,{
       "description": "好地方啊好地方！！！！",
       "price": 10,
       "imgs": [
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg"
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png"
       ],
       "type": 0  //（0 景点  1 酒店 2 饭店）
     },
@@ -440,10 +440,10 @@ gofree_mock.onPost('/refresh-all').reply(200,{
       "description": "好地方啊好地方！！！！",
       "price": 10,
       "imgs": [
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg"
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png"
       ],
       "type": 1  //（0 景点  1 酒店 2 饭店）
     },
@@ -460,10 +460,10 @@ gofree_mock.onPost('/refresh-all').reply(200,{
       "description": "好地方啊好地方！！！！",
       "price": 10,
       "imgs": [
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg"
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png"
       ],
       "type": 2  //（0 景点  1 酒店 2 饭店）
     },
@@ -480,10 +480,10 @@ gofree_mock.onPost('/refresh-all').reply(200,{
       "description": "好地方啊好地方！！！！",
       "price": 10,
       "imgs": [
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg",
-        "http://ojtlrnjhy.bkt.clouddn.com/2017-12-08-img_1.jpg"
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png",
+        "http://cdn.algbb.fun/emoji/32.png"
       ],
       "type": 0  //（0 景点  1 酒店 2 饭店）
     }
