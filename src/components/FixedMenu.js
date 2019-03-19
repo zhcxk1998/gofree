@@ -19,7 +19,10 @@ export default class FixedMenu extends Component {
 
     handleLoginOutClick = () => {this.props.handleLoginOut()}
     
-    handleItemClick = (e, { index }) => this.setState({ activeMenu: index })
+    handleItemClick = (e, { index }) => {
+      document.getElementById(`seg_${index}`).scrollIntoView();
+      this.setState({ activeMenu: index })
+    }
 
     componentWillReceiveProps(nextProps){
         this.setState({
@@ -38,8 +41,8 @@ export default class FixedMenu extends Component {
             <div>
                 <Menu size='large' inverted style={{background:'transparent'}}>
                   <Container>
-                    <Menu.Item as='a' href="#seg_0" active={activeMenu === 0} index={0} onClick={this.handleItemClick}>旅游定制</Menu.Item>
-                    <Menu.Item as='a' href="#seg_1" active={activeMenu === 1} index={1} onClick={this.handleItemClick}>推荐城市</Menu.Item>
+                    <Menu.Item as='a' active={activeMenu === 0} index={0} onClick={this.handleItemClick}>旅游定制</Menu.Item>
+                    <Menu.Item as='a' active={activeMenu === 1} index={1} onClick={this.handleItemClick}>推荐城市</Menu.Item>
                     <Menu.Menu position='right'>
                       {
                           isLogin ? 
@@ -65,9 +68,9 @@ export default class FixedMenu extends Component {
           :(
             <div>
                 <Menu fixed='top' size='large'>
-                  <Container>
-                    <Menu.Item as='a' href="#seg_0" active={activeMenu === 0} index={0} onClick={this.handleItemClick}>旅游定制</Menu.Item>
-                    <Menu.Item as='a' href="#seg_1" active={activeMenu === 1} index={1} onClick={this.handleItemClick}>推荐城市</Menu.Item>
+                  <Container textAlign="center">
+                    <Menu.Item as='a' active={activeMenu === 0} index={0} onClick={this.handleItemClick}>旅游定制</Menu.Item>
+                    <Menu.Item as='a' active={activeMenu === 1} index={1} onClick={this.handleItemClick}>推荐城市</Menu.Item>
                     <Menu.Menu position='right'>
                       {
                           isLogin ? 
