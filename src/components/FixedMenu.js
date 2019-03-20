@@ -1,100 +1,106 @@
-import React, { Component } from 'react'
-import { Button, Menu,Container,Dropdown} from 'semantic-ui-react'
+import React, { Component } from 'react';
+import {
+  Button, Menu, Container, Dropdown,
+} from 'semantic-ui-react';
 
 
 export default class FixedMenu extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            activeMenu: this.props.activeMenu,
-            isLogin: this.props.isLogin,
-            isInverted: this.props.isInverted
-        };
-    }
-      
-    handleLoginClick = () => {this.props.handleLogin()}
+    this.state = {
+      activeMenu: this.props.activeMenu,
+      isLogin: this.props.isLogin,
+      isInverted: this.props.isInverted,
+    };
+  }
 
-    handleRegisterClick = () => {this.props.handleRegister()}
+    handleLoginClick = () => { this.props.handleLogin(); }
 
-    handleLoginOutClick = () => {this.props.handleLoginOut()}
-    
+    handleRegisterClick = () => { this.props.handleRegister(); }
+
+    handleLoginOutClick = () => { this.props.handleLoginOut(); }
+
     handleItemClick = (e, { index }) => {
       document.getElementById(`seg_${index}`).scrollIntoView();
-      this.setState({ activeMenu: index })
+      this.setState({ activeMenu: index });
     }
 
-    componentWillReceiveProps(nextProps){
-        this.setState({
-            activeMenu: nextProps.activeMenu,
-            isLogin: nextProps.isLogin,
-            isInverted: nextProps.isInverted
-        })
+    componentWillReceiveProps(nextProps) {
+      this.setState({
+        activeMenu: nextProps.activeMenu,
+        isLogin: nextProps.isLogin,
+        isInverted: nextProps.isInverted,
+      });
     }
 
     render() {
-      const {activeMenu,isInverted,isLogin} = this.state;
-        return (
-          <div>
-        {
-          isInverted  ?  (
+      const { activeMenu, isInverted, isLogin } = this.state;
+      return (
+        <div>
+          {
+          isInverted ? (
             <div>
-                <Menu size='large' inverted style={{background:'transparent'}}>
-                  <Container>
-                    <Menu.Item as='a' active={activeMenu === 0} index={0} onClick={this.handleItemClick}>旅游定制</Menu.Item>
-                    <Menu.Item as='a' active={activeMenu === 1} index={1} onClick={this.handleItemClick}>推荐城市</Menu.Item>
-                    <Menu.Menu position='right'>
-                      {
-                          isLogin ? 
-                          (<div>
-                              <Dropdown item text={window.$wsCache.get('username')} inline>
-                                <Dropdown.Menu>
-                                  <Dropdown.Item onClick={this.handleLoginOutClick}>退出</Dropdown.Item>
-                                </Dropdown.Menu>
-                              </Dropdown>
-                          </div>)
-                          :(
-                          <div>
-                              <Button as='a' inverted onClick={this.handleLoginClick}>登录</Button>
-                              <Button as='a' inverted onClick={this.handleRegisterClick}>注册</Button>
-                          </div>
-                          )
+              <Menu size="large" inverted style={{ background: 'transparent' }}>
+                <Container>
+                  <Menu.Item as="a" active={activeMenu === 0} index={0} onClick={this.handleItemClick}>旅游定制</Menu.Item>
+                  <Menu.Item as="a" active={activeMenu === 1} index={1} onClick={this.handleItemClick}>推荐城市</Menu.Item>
+                  <Menu.Menu position="right">
+                    {
+                          isLogin
+                            ? (
+                              <div>
+                                <Dropdown item text={window.$wsCache.get('username')} inline>
+                                  <Dropdown.Menu>
+                                    <Dropdown.Item onClick={this.handleLoginOutClick}>退出</Dropdown.Item>
+                                  </Dropdown.Menu>
+                                </Dropdown>
+                              </div>
+                            )
+                            : (
+                              <div>
+                                <Button as="a" inverted onClick={this.handleLoginClick}>登录</Button>
+                                <Button as="a" inverted onClick={this.handleRegisterClick}>注册</Button>
+                              </div>
+                            )
                       }
-                    </Menu.Menu>
-                  </Container>
-                </Menu>
+                  </Menu.Menu>
+                </Container>
+              </Menu>
             </div>
-            )
-          :(
-            <div>
-                <Menu fixed='top' size='large'>
+          )
+            : (
+              <div>
+                <Menu fixed="top" size="large">
                   <Container textAlign="center">
-                    <Menu.Item as='a' active={activeMenu === 0} index={0} onClick={this.handleItemClick}>旅游定制</Menu.Item>
-                    <Menu.Item as='a' active={activeMenu === 1} index={1} onClick={this.handleItemClick}>推荐城市</Menu.Item>
-                    <Menu.Menu position='right'>
+                    <Menu.Item as="a" active={activeMenu === 0} index={0} onClick={this.handleItemClick}>旅游定制</Menu.Item>
+                    <Menu.Item as="a" active={activeMenu === 1} index={1} onClick={this.handleItemClick}>推荐城市</Menu.Item>
+                    <Menu.Menu position="right">
                       {
-                          isLogin ? 
-                          (<div>
-                              <Dropdown item text={window.$wsCache.get('username')} inline>
-                                <Dropdown.Menu>
-                                  <Dropdown.Item onClick={this.handleLoginOutClick}>退出</Dropdown.Item>
-                                </Dropdown.Menu>
-                              </Dropdown>
-                          </div>)
-                          :(
-                          <div>
-                              <Button as='a' basic color="green" onClick={this.handleLoginClick}>登录</Button>
-                              <Button as='a' basic onClick={this.handleRegisterClick}>注册</Button>
-                          </div>
-                          )
+                          isLogin
+                            ? (
+                              <div>
+                                <Dropdown item text={window.$wsCache.get('username')} inline>
+                                  <Dropdown.Menu>
+                                    <Dropdown.Item onClick={this.handleLoginOutClick}>退出</Dropdown.Item>
+                                  </Dropdown.Menu>
+                                </Dropdown>
+                              </div>
+                            )
+                            : (
+                              <div>
+                                <Button as="a" basic color="green" onClick={this.handleLoginClick}>登录</Button>
+                                <Button as="a" basic onClick={this.handleRegisterClick}>注册</Button>
+                              </div>
+                            )
                       }
                     </Menu.Menu>
                   </Container>
                 </Menu>
-            </div>
+              </div>
             )
         }
         </div>
-        )
+      );
     }
 }

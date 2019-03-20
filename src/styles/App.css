@@ -138,26 +138,29 @@ body {
 }
 
 .recline_body {
-  background-color: #F6F6F6;
+  background-color: rgba(242, 242, 242, 1);
 }
 
 .line_title_div {
-  padding: 0.5em 0 !important;
+  margin-top: 100px !important;
+  padding: 3em 0 !important;
 }
 
 .line_title_main {
-  margin-bottom: 6px;
+  margin-bottom: 30px;
+  font-size: 48px;
+  letter-spacing: 8px;
   color: #453D3D;
 }
 
 .line_title_sub {
-  font-size: 14px !important;
+  font-size: 20px !important;
   color: #99A3A4 !important;
 }
 
 .line_list_div {
     margin: 0 3em 3em 3em;
-    border: 1px #EAECEE solid;
+    /* border: 1px #EAECEE solid; */
     padding: 0 2em 2em 2em;
     background-color: #fff;
     border-radius: 15px;
@@ -174,17 +177,34 @@ body {
 }
 
 .recline_map {
-  height: 600px;
+  /* height: 600px; */
 }
 
-.line_info_div {
+/* .line_info_div {
   text-align: center;
-  padding-bottom: 30px;
-  border-bottom: 1px #CACFD2 solid;
+  padding: 10px 0;
+} */
+
+.line_info_div .list{
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.line_info_div .list .item{
+  display: flex !important;
+  align-items: center;
+}
+
+.line_info_div .list .item .statistic{
+  padding: 0;
 }
 
 .line_grid_row {
-  padding: 0.2em 0 !important;
+  padding: 2em 0 4em 0!important;
+  background: #fff;
+  /* border-top: 1px #CACFD2 solid; */
 }
 
 .place_refresh_div {
@@ -244,7 +264,71 @@ body {
   border-bottom:1px #CACFD2 solid; 
 }
 
+.trip-item{
+  /* background: #21ba45 !important; */
+}
 
+.menu .item{
+  font-weight: bold !important;
+}
 
+.menu .item h1{
+  font-size: 24px;
+}
 
+.menu .active{
+  background: #21ba45 !important;
+  color: #fff !important;
+}
 
+.menu .active h1{
+  font-size: 28px;
+}
+
+.header-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100px;
+  padding: 0 60px;
+  background: #fff;
+  box-shadow: #cfcfcf 0 8px 16px -8px;
+}
+
+.header-nav h1{
+  margin: 0;
+  font-size: 60px;
+  font-weight: bold;
+  color: #1fa53e;
+}
+
+.nav-feature{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-feature .active{
+  border-bottom: #1fa53e 3px solid
+}
+
+.nav-feature div{
+  margin: 0 30px;
+  padding: 14px 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #1fa53e;
+}
+
+.nav-feature div:nth-child(3){
+  margin: 0 90px 0 30px;
+}
+
+.images img{
+  height: 140px !important;
+}

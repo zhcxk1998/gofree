@@ -1,29 +1,29 @@
-import React, { Component } from 'react'
-import { Button,Modal,Embed} from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Button, Modal, Embed } from 'semantic-ui-react';
 
 export default class VideoModal extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      modalOpen: this.props.modalOpen
-    }
+      modalOpen: this.props.modalOpen,
+    };
   }
 
   handleOpen = () => this.setState({ modalOpen: true })
 
   handleClose = () => {
     this.props.closeVideoModal();
-    this.setState({ modalOpen: false })
+    this.setState({ modalOpen: false });
   }
 
   render() {
-    const {modalOpen} = this.state;
+    const { modalOpen } = this.state;
     return (
       <Modal
         open={modalOpen}
         basic
-        size='large'
+        size="large"
         closeOnDocumentClick={false}
       >
         <Modal.Actions>
@@ -32,12 +32,12 @@ export default class VideoModal extends Component {
           </Button>
         </Modal.Actions>
         <Modal.Content>
-            <Embed
-                url={this.props.videoUrl}
-            />
+          <Embed
+            url={this.props.videoUrl}
+          />
         </Modal.Content>
 
       </Modal>
-    )
+    );
   }
 }

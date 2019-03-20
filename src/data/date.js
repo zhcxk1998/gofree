@@ -10,7 +10,7 @@ export const MONTHS = [
   '九月',
   '十月',
   '十一月',
-  '十二月'
+  '十二月',
 ];
 export const WEEKDAYS_LONG = [
   '星期一',
@@ -19,6 +19,6 @@ export const WEEKDAYS_LONG = [
   '星期四',
   '星期五',
   '星期六',
-  '星期日'
+  '星期日',
 ];
 export const WEEKDAYS_SHORT = ['日', '一', '二', '三', '四', '五', '六'];
