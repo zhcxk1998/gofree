@@ -5,6 +5,7 @@
     "react"
   ],
   "plugins": [
-    "react-hot-loader/babel" // 添加HMR支持
+    "react-hot-loader/babel", // 添加HMR支持
+    "transform-runtime", // 支持es6语法
   ]
 }
