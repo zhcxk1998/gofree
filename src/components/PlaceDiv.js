@@ -25,21 +25,22 @@ export default class PlaceDiv extends Component {
   renderTags(tags) {
     return (
       tags.map((i, idx) => (
-        <Label key={idx} as="a" tag key={idx} color="gray">{i}</Label>
+        <Label key={idx} as="a" tag key={idx} color="grey" style={{ marginRight: 10 }}>{i}</Label>
       ))
     );
   }
 
   renderTypeIcon(type) {
-    let iconDom;
-    if (type == 0) {
-      iconDom = <Image src={viewPng} />;
-    } else if (type == 1) {
-      iconDom = <Image src={hotelPng} />;
-    } else {
-      iconDom = <Image src={resPng} />;
-    }
-    return iconDom;
+    // let iconDom;
+    // if (type == 0) {
+    //   iconDom = <Image src={viewPng} />;
+    // } else if (type == 1) {
+    //   iconDom = <Image src={hotelPng} />;
+    // } else {
+    //   iconDom = <Image src={resPng} />;
+    // }
+    const iconType = ['camera', 'bed', 'bus'];
+    return <Icon circular inverted color="green" name={iconType[type]} size="large" style={{ transform: 'translateX(-1em)' }} />;
   }
 
   showMore = (placeId, idx) => {
@@ -174,6 +175,7 @@ export default class PlaceDiv extends Component {
             <Image src={item.imgs[3]} />
           </Image.Group>
         </div>
+        {/* <div className="divider" /> */}
         {/* 模态框 */}
         <Modal
           open={this.state.isOpen}

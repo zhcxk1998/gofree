@@ -10,6 +10,8 @@ import HeaderNav from '../components/HeaderNav.js';
 import BaiduMap from '../components/BaiduMap.js';
 import PlaceDiv from '../components/PlaceDiv.js';
 
+import '../styles/iconfont.css';
+
 const viewPng = require('../images/view.png');
 const hotelPng = require('../images/hotel.png');
 const resPng = require('../images/res.png');
@@ -37,6 +39,7 @@ class Recline extends Component {
       type: '',
       isLineOk: false,
       activeDay: 1,
+      dayIntoView: false,
     };
   }
 
@@ -75,6 +78,13 @@ class Recline extends Component {
       });
     const res = await axios.get('/get-trip', {});
     this.setState({ trips: res.trips });
+    window.onscroll = () => {
+      const dayMenu = document.getElementById('dayMenu');
+      this.setState({
+        dayIntoView: window.scrollY + 72 > dayMenu.offsetTop,
+      });
+      console.log(document.getElementById('line_list_div').offsetLeft);
+    };
   }
 
   renderTrip() {
@@ -158,9 +168,14 @@ class Recline extends Component {
       const line = lines[idx];
       return (
         <div className="line_div">
-          <Image src={trafficPng} />
-          <span>{line.fromToName}</span>
-          <span>{line.description}</span>
+          {/* <Image src={trafficPng} /> */}
+          <Icon inverted circular name="bus" color="green" size="large" style={{ transform: 'translateX(-1em)' }} />
+          {line.fromToName}
+          {line.description}
+          <Label basic color="teal" style={{ marginLeft: 30 }}>
+            <Icon name="blind" />
+            跟我走
+          </Label>
           {/* <Statistic horizontal label="¥" value={line.price} floated="right" color="green" size="tiny" /> */}
           <Statistic horizontal color="orange" size="small" floated="right">
             <Statistic.Value style={{ fontWeight: 'bold' }}>
@@ -226,61 +241,72 @@ class Recline extends Component {
 
     render() {
       const {
-        typeName, destination, start, end, price, places, lines, trips, activeDay, isLineOk,
+        typeName, destination, start, end, price, places, lines, trips, activeDay, isLineOk, dayIntoView,
       } = this.state;
-      return (
-        <div className="recline_body">
-          <HeaderNav />
-          <Header as="h1" icon textAlign="center" className="line_title_div">
-            <Header.Content className="line_title_main">
-                  我的行程
-            </Header.Content>
-            <Header.Subheader className="line_title_sub">
-                行程已为您规划完成，来一场说走就走的旅行吧！
-            </Header.Subheader>
-          </Header>
-          <div className="line_list_div">
-            <Grid>
-              <Label as="a" color="teal" ribbon="right">清单</Label>
-              <Grid.Row>
-                <Grid.Column width={16}>
-                  <div className="line_info_div">
-                    <List horizontal relaxed size="big">
-                      <List.Item>
-旅行方式
-                        <Label as="a" color="teal" basic className="line_list_label">{typeName}</Label>
-                      </List.Item>
-                      <List.Item>
-目的地
-                        <Label as="a" color="teal" basic className="line_list_label">{destination}</Label>
-                      </List.Item>
-                      <List.Item>
-出发时间
-                        <Label as="a" color="teal" basic className="line_list_label">{start}</Label>
-                      </List.Item>
-                      <List.Item>
-返程时间
-                        <Label as="a" color="teal" basic className="line_list_label">{end}</Label>
-                      </List.Item>
-                      {/* <List.Item>总体花费<Statistic horizontal value={price} label='¥' size='big' color='range' style={{marginLeft:'40px'}}/></List.Item> */}
-                      <List.Item>
-总体花费
-                        <Statistic horizontal color="orange" size="small">
-                          <Statistic.Value style={{ fontWeight: 'bold' }}>
-                            <Icon name="yen" color="orange" />
-                            {price}
-                          </Statistic.Value>
-                        </Statistic>
-                      </List.Item>
+      const offsetLeft = document.getElementById('line_list_div') && document.getElementById('line_list_div').offsetLeft + 28;
+      const style = {
+        intoView: {
+          width: 100, textAlign: 'center', position: 'fixed', top: 100, left: offsetLeft,
+        },
+        outOfView: {
+          width: 100, textAlign: 'center',
+        },
+      };
 
-                      {/* <List.Item>总体花费<Icon name="yen" color="orange" size="large"/>{price}</List.Item> */}
-                      <List.Item><Button color="green" size="big">确认行程</Button></List.Item>
-                    </List>
-                  </div>
-                </Grid.Column>
-              </Grid.Row>
-              <Divider />
-              {
+      return (
+        <div className="recline-body">
+          <div className="recline-wrap">
+            <HeaderNav />
+            <Header as="h1" icon textAlign="center" className="line_title_div">
+              <Header.Content className="line_title_main">
+                  我的行程
+              </Header.Content>
+              <Header.Subheader className="line_title_sub">
+                行程已为您规划完成，来一场说走就走的旅行吧！
+              </Header.Subheader>
+            </Header>
+            <div className="line_list_div" id="line_list_div">
+              <Grid>
+                <Label as="a" color="teal" ribbon="right">清单</Label>
+                <Grid.Row>
+                  <Grid.Column width={16}>
+                    <div className="line_info_div">
+                      <List horizontal relaxed size="big">
+                        <List.Item>
+旅行方式
+                          <Label as="a" color="teal" basic className="line_list_label">{typeName}</Label>
+                        </List.Item>
+                        <List.Item>
+目的地
+                          <Label as="a" color="teal" basic className="line_list_label">{destination}</Label>
+                        </List.Item>
+                        <List.Item>
+出发时间
+                          <Label as="a" color="teal" basic className="line_list_label">{start}</Label>
+                        </List.Item>
+                        <List.Item>
+返程时间
+                          <Label as="a" color="teal" basic className="line_list_label">{end}</Label>
+                        </List.Item>
+                        {/* <List.Item>总体花费<Statistic horizontal value={price} label='¥' size='big' color='range' style={{marginLeft:'40px'}}/></List.Item> */}
+                        <List.Item>
+总体花费
+                          <Statistic horizontal color="orange" size="small">
+                            <Statistic.Value style={{ fontWeight: 'bold' }}>
+                              <Icon name="yen" color="orange" />
+                              {price}
+                            </Statistic.Value>
+                          </Statistic>
+                        </List.Item>
+
+                        {/* <List.Item>总体花费<Icon name="yen" color="orange" size="large"/>{price}</List.Item> */}
+                        <List.Item><Button color="green" size="big">确认行程</Button></List.Item>
+                      </List>
+                    </div>
+                  </Grid.Column>
+                </Grid.Row>
+                <Divider />
+                {
                     isLineOk
                       ? [
                         <Grid.Row key="preview" className="line_grid_row" style={{ display: 'flex', alignItems: 'center' }}>
@@ -295,9 +321,9 @@ class Recline extends Component {
                         </Grid.Row>,
                         <Divider />,
                         <Grid.Row key="title"><Grid.Column width={16}><Header as="h1" icon textAlign="left" content="行程详情" style={{ width: '100%' }} /></Grid.Column></Grid.Row>,
-                        <Grid.Row key="detail" className="line_grid_row">
+                        <Grid.Row key="detail" className="line_grid_row" id="dayMenu">
                           <Grid.Column width={2}>
-                            <Menu vertical style={{ width: '80%', textAlign: 'center' }}>
+                            <Menu vertical style={dayIntoView ? style.intoView : style.outOfView}>
                               {trips.map((item, index) => (
                                 <Menu.Item
                                   key={item.day}
@@ -312,7 +338,7 @@ class Recline extends Component {
                             </Menu>
                           </Grid.Column>
                           <Grid.Column width={14}>
-                            <Header as="h1" icon textAlign="left" content="第一天" color="grey" />
+                            <Header as="h1" icon textAlign="left" content="第一天" color="grey" style={{ transform: 'translateX(-1em)' }} />
                             {places.map((item, idx) => (
                               <div key={idx}>
                                 <PlaceDiv item={item} idx={idx} orderId={this.state.id} changePlace={this.changePlace} refreshList={this.refreshList} />
@@ -337,7 +363,8 @@ class Recline extends Component {
                         </Grid.Row>
                       )
                   }
-            </Grid>
+              </Grid>
+            </div>
           </div>
         </div>
       );
