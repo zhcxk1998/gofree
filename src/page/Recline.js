@@ -40,6 +40,7 @@ class Recline extends Component {
       isLineOk: false,
       activeDay: 1,
       dayIntoView: false,
+      currentDay: 1,
     };
   }
 
@@ -72,9 +73,10 @@ class Recline extends Component {
       },
     })
       .then((response) => {
-        console.log(response);
         response.isLineOk = true;
-        $this.setState(response);
+        $this.setState(response, () => {
+          console.log(this.state);
+        });
       });
     const res = await axios.get('/get-trip', {});
     this.setState({ trips: res.trips });
@@ -83,7 +85,6 @@ class Recline extends Component {
       this.setState({
         dayIntoView: window.scrollY + 72 > dayMenu.offsetTop,
       });
-      console.log(document.getElementById('line_list_div').offsetLeft);
     };
   }
 
@@ -109,7 +110,7 @@ class Recline extends Component {
   }
 
   renderMap() {
-    const { map, mapChangeFlag } = this.state;
+    const { map, mapChangeFlag, currentDay } = this.state;
     const { centerP, points } = map;
     return (
       <div className="recline_map">
@@ -119,13 +120,15 @@ class Recline extends Component {
           callback={(map) => {
             map.centerAndZoom(new BMap.Point(centerP.x, centerP.y), 11);
 
+            map.enableScrollWheelZoom();
+
             const opts = { type: BMAP_NAVIGATION_CONTROL_SMALL };
             map.addControl(new BMap.NavigationControl(opts));
 
             const p = [];
 
-            for (let i = 0; i < points.length; i++) {
-              p[i] = new BMap.Point(points[i].x, points[i].y);
+            for (let i = 0; i < points[currentDay - 1].length; i++) {
+              p[i] = new BMap.Point(points[currentDay - 1][i].x, points[currentDay - 1][i].y);
             }
 
             const driving = new BMap.DrivingRoute(map, {
@@ -134,25 +137,29 @@ class Recline extends Component {
                 autoViewport: true,
               },
             });
-            driving.search(p[0], p[points.length - 1], {
-              waypoints: p.slice(1, points.length - 1),
+            driving.search(p[0], p[points[currentDay - 1].length - 1], {
+              waypoints: p.slice(1, points[currentDay - 1].length - 1),
             });
-            // driving.setMarkersSetCallback(function(e){
-            //   for(var i = 0;i<e.length;i++){
-            //       var item = points[i];
-            //       var myIcon;
-            //       if(item.type == 0){
-            //         myIcon = new BMap.Icon(viewPng, new BMap.Size(45,45));
-            //       }else if(item.type == 1){
-            //         myIcon = new BMap.Icon(hotelPng, new BMap.Size(45,45));
-            //       }else {
-            //         myIcon = new BMap.Icon(resPng, new BMap.Size(45,45));
-            //       }
-            //       console.log("sss",e[i]);
-            //       if(e[i].marker ==null)
-            //         e[i].Mm.setIcon(myIcon);
-            //       else
-            //         e[i].marker.setIcon(myIcon);
+
+            // driving.search('天安门', '百度大厦');
+
+            // driving.setMarkersSetCallback((e) => {
+            //   for (let i = 0; i < e.length; i++) {
+            //     const item = points[i];
+            //     let myIcon;
+            //     if (item.type == 0) {
+            //       myIcon = new BMap.Icon(viewPng, new BMap.Size(45, 45));
+            //     } else if (item.type == 1) {
+            //       myIcon = new BMap.Icon(hotelPng, new BMap.Size(45, 45));
+            //     } else {
+            //       myIcon = new BMap.Icon(resPng, new BMap.Size(45, 45));
+            //     }
+            //     if (e[i].marker == null) {
+            //       // e[i].Mm.setIcon(myIcon);
+            //       console.log('null')
+            //     } else {
+            //       e[i].marker.setIcon(myIcon);
+            //     }
             //   }
             // });
           }}
@@ -162,30 +169,30 @@ class Recline extends Component {
   }
 
 
-    renderLine = (idx) => {
-      const { lines } = this.state;
-      if (lines.length <= idx) return;
-      const line = lines[idx];
-      return (
-        <div className="line_div">
-          {/* <Image src={trafficPng} /> */}
-          <Icon inverted circular name="bus" color="green" size="large" style={{ transform: 'translateX(-1em)' }} />
-          {line.fromToName}
-          {line.description}
-          <Label basic color="teal" style={{ marginLeft: 30 }}>
-            <Icon name="blind" />
-            跟我走
-          </Label>
-          {/* <Statistic horizontal label="¥" value={line.price} floated="right" color="green" size="tiny" /> */}
-          <Statistic horizontal color="orange" size="small" floated="right">
-            <Statistic.Value style={{ fontWeight: 'bold' }}>
-              <Icon name="yen" color="orange" />
-              {line.price}
-            </Statistic.Value>
-          </Statistic>
-        </div>
-      );
-    }
+   renderLine = (idx) => {
+     const { lines } = this.state;
+     if (lines.length <= idx) return;
+     const line = lines[idx];
+     return (
+       <div className="line_div">
+         {/* <Image src={trafficPng} /> */}
+         <Icon inverted circular name="bus" color="green" size="large" style={{ transform: 'translateX(-1em)' }} />
+         {line.fromToName}
+         {line.description}
+         <Label basic color="teal" style={{ marginLeft: 30 }}>
+           <Icon name="blind" />
+           跟我走
+         </Label>
+         {/* <Statistic horizontal label="¥" value={line.price} floated="right" color="green" size="tiny" /> */}
+         <Statistic horizontal color="orange" size="small" floated="right">
+           <Statistic.Value style={{ fontWeight: 'bold' }}>
+             <Icon name="yen" color="orange" />
+             {line.price}
+           </Statistic.Value>
+         </Statistic>
+       </div>
+     );
+   }
 
     // TODO:价钱也需要更新
     changePlace = (item, idx, mapData, linesData) => {
@@ -237,11 +244,20 @@ class Recline extends Component {
       this.setState({
         activeDay: day,
       });
+      document.getElementsByClassName('place-anchor')[day - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+
+    handleMapClick=(day) => {
+      const { mapChangeFlag, currentDay } = this.state;
+      this.setState({
+        currentDay: day,
+        mapChangeFlag: currentDay !== day ? mapChangeFlag + 1 : mapChangeFlag,
+      });
     }
 
     render() {
       const {
-        typeName, destination, start, end, price, places, lines, trips, activeDay, isLineOk, dayIntoView,
+        typeName, destination, start, end, price, places, lines, trips, activeDay, isLineOk, dayIntoView, currentDay, id,
       } = this.state;
       const offsetLeft = document.getElementById('line_list_div') && document.getElementById('line_list_div').offsetLeft + 28;
       const style = {
@@ -252,7 +268,6 @@ class Recline extends Component {
           width: 100, textAlign: 'center',
         },
       };
-
       return (
         <div className="recline-body">
           <div className="recline-wrap">
@@ -315,6 +330,11 @@ class Recline extends Component {
                             {this.renderTrip()}
                           </Grid.Column>
                           <Grid.Column width={7}>
+                            <div className="map-day">
+                              {['D1', 'D2', 'D3', 'D4'].map((item, index) => (
+                                <div key={item} className={`map-day-item ${index + 1 === currentDay ? 'map-day-active' : ''}`} onClick={() => { this.handleMapClick(index + 1); }}>{item}</div>
+                              ))}
+                            </div>
                             {this.renderMap()}
                           </Grid.Column>
 
@@ -338,20 +358,16 @@ class Recline extends Component {
                             </Menu>
                           </Grid.Column>
                           <Grid.Column width={14}>
-                            <Header as="h1" icon textAlign="left" content="第一天" color="grey" style={{ transform: 'translateX(-1em)' }} />
-                            {places.map((item, idx) => (
-                              <div key={idx}>
-                                <PlaceDiv item={item} idx={idx} orderId={this.state.id} changePlace={this.changePlace} refreshList={this.refreshList} />
-                                {this.renderLine(idx)}
+                            {places.map((items, idx) => (
+                              <div key={idx} id={`day${idx + 1}`}>
+                                {/* 这里是用来点击滑动跳转的锚点 */}
+                                <div className="place-anchor" />
+                                <Header as="h1" icon textAlign="left" content={`DAY${idx + 1}`} color="grey" style={{ transform: 'translateX(-1em)' }} />
+                                <PlaceDiv items={items} idx={idx} orderId={id} changePlace={this.changePlace} refreshList={this.refreshList} lines={lines} currentDay={idx} />
                               </div>
                             ))}
                           </Grid.Column>
-                          {/* <Grid.Column width={7}>
-                            {this.renderMap()}
-                          </Grid.Column> */}
-
                         </Grid.Row>,
-
                       ]
                       : (
                         <Grid.Row className="line_grid_row line_loading_div">
