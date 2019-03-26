@@ -17,6 +17,8 @@ export default class PlaceDiv extends Component {
       places: [],
       mapDatas: [],
       isOpen: false,
+      lines: this.props.lines,
+      currentDay: this.props.currentDay,
     };
   }
 
@@ -31,16 +33,32 @@ export default class PlaceDiv extends Component {
   }
 
   renderTypeIcon(type) {
-    // let iconDom;
-    // if (type == 0) {
-    //   iconDom = <Image src={viewPng} />;
-    // } else if (type == 1) {
-    //   iconDom = <Image src={hotelPng} />;
-    // } else {
-    //   iconDom = <Image src={resPng} />;
-    // }
-    const iconType = ['camera', 'bed', 'bus'];
+    const iconType = ['camera', 'bed', 'coffee'];
     return <Icon circular inverted color="green" name={iconType[type]} size="large" style={{ transform: 'translateX(-1em)' }} />;
+  }
+
+  renderLine(idx) {
+    const { lines, currentDay } = this.state;
+    const line = lines[currentDay][idx];
+    const iconType = ['truck', 'bus', 'blind'];
+    return line && (
+      <div className="line_div">
+        <Icon inverted circular name={iconType[line.type]} color="green" size="large" style={{ transform: 'translateX(-1em)' }} />
+        {line.fromToName}
+        {line.description}
+        <Label basic color="teal" style={{ marginLeft: 30 }}>
+          <Icon name="blind" />
+          跟我走
+        </Label>
+        {/* <Statistic horizontal label="¥" value={line.price} floated="right" color="green" size="tiny" /> */}
+        <Statistic horizontal color="orange" size="small" floated="right">
+          <Statistic.Value style={{ fontWeight: 'bold' }}>
+            <Icon name="yen" color="orange" />
+            {line.price}
+          </Statistic.Value>
+        </Statistic>
+      </div>
+    );
   }
 
   showMore = (placeId, idx) => {
@@ -111,10 +129,9 @@ export default class PlaceDiv extends Component {
         </div>
         <div className="place_imgs">
           <Image.Group size="small">
-            <Image src={item.imgs[0]} />
-            <Image src={item.imgs[1]} />
-            <Image src={item.imgs[2]} />
-            <Image src={item.imgs[3]} />
+            {item.imgs.map((img, index) => (
+              index < 4 && <Image src={img} />
+            ))}
           </Image.Group>
         </div>
       </div>
@@ -128,79 +145,84 @@ export default class PlaceDiv extends Component {
 
 
   render() {
-    const { item, idx } = this.props;
+    const {
+      items, idx, renderLine,
+    } = this.props;
     const { places } = this.state;
     return (
-      <div className="place_div">
-        <div className="place_total">
-          {this.renderTypeIcon(item.type)}
-          {item.name}
-          <Label color="red" basic>
-            {item.score}
+      <div className="place-day">
+        {items.map((item, index) => (
+          <div className="place_div">
+            <div className="place_total">
+              {this.renderTypeIcon(item.type)}
+              {item.name}
+              <Label color="red" basic>
+                {item.score}
 分
-          </Label>
+              </Label>
 &nbsp;&nbsp;
 
-          <Label as="a" image color="yellow" basic>
-            <Icon name="thumbs outline up" />
-            {item.zanNum}
+              <Label as="a" image color="yellow" basic>
+                <Icon name="thumbs outline up" />
+                {item.zanNum}
 觉得很赞
 
-          </Label>
+              </Label>
                 &nbsp;&nbsp;
 
-          <Popup
-            trigger={<Button icon="refresh" onClick={this.showMore.bind(this, item.placeId, idx)} basic />}
-            content="不喜欢?换一个"
-          />
-          {/* <Statistic horizontal label="¥" value={item.price} floated="right" color="red" size="tiny" /> */}
-          <Statistic horizontal color="orange" size="small" floated="right">
-            <Statistic.Value style={{ fontWeight: 'bold' }}>
-              <Icon name="yen" color="orange" />
-              {item.price}
-            </Statistic.Value>
-          </Statistic>
-        </div>
-        <div className="place_tags">
-          {this.renderTags(item.tags)}
-        </div>
-        <div className="place_text">
-          {item.description}
-        </div>
-        <div className="place_imgs">
-          <Image.Group size="small">
-            <Image src={item.imgs[0]} />
-            <Image src={item.imgs[1]} />
-            <Image src={item.imgs[2]} />
-            <Image src={item.imgs[3]} />
-          </Image.Group>
-        </div>
-        {/* <div className="divider" /> */}
-        {/* 模态框 */}
-        <Modal
-          open={this.state.isOpen}
-          onClose={this.handleClose}
-        >
-          <Modal.Header>相关推荐地点</Modal.Header>
-          <Modal.Content image scrolling>
-            <Grid>
-              {places.map((item, idx) => (
-                <div key={idx} style={{ display: 'block' }}>
-                  {this.renderModalPlaceDiv(item, idx)}
-                </div>
+              <Popup
+                trigger={<Button icon="refresh" onClick={this.showMore.bind(this, item.placeId, idx)} basic />}
+                content="不喜欢?换一个"
+              />
+              {/* <Statistic horizontal label="¥" value={item.price} floated="right" color="red" size="tiny" /> */}
+              <Statistic horizontal color="orange" size="small" floated="right">
+                <Statistic.Value style={{ fontWeight: 'bold' }}>
+                  <Icon name="yen" color="orange" />
+                  {item.price}
+                </Statistic.Value>
+              </Statistic>
+            </div>
+            <div className="place_tags">
+              {this.renderTags(item.tags)}
+            </div>
+            <div className="place_text">
+              {item.description}
+            </div>
+            <div className="place_imgs">
+              {item.imgs.map((img, index) => (
+                index < 4 && <img src={img} alt="" />
               ))}
-            </Grid>
-          </Modal.Content>
-          <Modal.Actions>
-            <Button color="red" onClick={this.refreshAll}>
+              {item.imgs.length > 4 && <i className="place-more-img iconfont icon-more" />}
+            </div>
+            {/* 模态框 */}
+            <Modal
+              open={this.state.isOpen}
+              onClose={this.handleClose}
+            >
+              <Modal.Header>相关推荐地点</Modal.Header>
+              <Modal.Content image scrolling>
+                <Grid>
+                  {places.map((item, idx) => (
+                    <div key={idx} style={{ display: 'block' }}>
+                      {this.renderModalPlaceDiv(item, idx)}
+                    </div>
+                  ))}
+                </Grid>
+              </Modal.Content>
+              <Modal.Actions>
+                <Button color="red" onClick={this.refreshAll}>
                           刷新全部
-            </Button>
-            <Button color="green" onClick={this.handleClose}>
+                </Button>
+                <Button color="green" onClick={this.handleClose}>
                           取消
-            </Button>
-          </Modal.Actions>
-        </Modal>
+                </Button>
+              </Modal.Actions>
+            </Modal>
+            {this.renderLine(index)}
+          </div>
+        ))}
       </div>
+
     );
   }
 }

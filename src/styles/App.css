@@ -245,20 +245,31 @@ body {
 }
 
 .place_imgs {
+  display: flex;
+  align-items: center;
+  position: relative;
   margin-left: 60px;
 }
 
 .place_imgs img {
   width: 22% !important;
+  height: 140px;
   border-radius: 4px;
-  margin-right: 8px !important;
+  margin-right: 12px !important;
+}
+
+.place-more-img{
+  position: absolute;
+  right: 0;
+  font-size: 30px !important;
+  color: #999;
 }
 
 .line_div {
   padding: 40px 0; 
   color: #333;
   font-size: 18px;
-  border-left: 2px #21ba45c7 solid; 
+  /* border-left: 2px #21ba45c7 solid;  */
 }
 
 .line_div img {
@@ -350,7 +361,8 @@ body {
 }
 
 .place_div{
-  border-left: 2px #21ba45c7 solid;
+  /* border-left: 2px #21ba45c7 solid; */
+  /* margin-bottom: 40px; */
 }
 
 .divider{
@@ -358,4 +370,46 @@ body {
   width: 90%;
   height: 2px;
   background: #d7d7d7;
+}
+
+.map-day{
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  z-index: 100;
+  top: 5px;
+  right: 14px;
+  max-width: 300px;
+  height: 40px;
+}
+
+.map-day-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background:#fff;
+  border: rgb(3, 179, 3) 1px solid;
+  color: #000;
+  font-weight: bold;
+}
+
+.map-day-active{
+  background: rgb(3, 179, 3);
+  color: #fff;
+}
+
+.place-day{
+  margin: 0 0 40px 0;
+  padding-bottom: 40px;
+  border-left: 2px #5eda7b solid;
+  border-radius: 16px;
+  box-shadow: #d7d7d7 0px 20px 20px -20px;
+}
+
+.place-anchor{
+  transform: translateY(-120px);
 }
