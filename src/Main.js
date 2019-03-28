@@ -1,12 +1,11 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Home from './page/Home.js';
-import Recline from './page/Recline.js';
-
-require('normalize.css/normalize.css');
-require('semantic-ui-css/semantic.min.css');
-require('./styles/App.css');
+import Home from './page/Home';
+import Recline from './page/Recline';
+import 'normalize.css/normalize.css';
+import './styles/App.css';
+import 'semantic-ui-css/semantic.min.css';
 
 
 class AppComponent extends React.Component {

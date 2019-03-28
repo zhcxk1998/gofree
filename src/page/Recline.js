@@ -12,11 +12,6 @@ import PlaceDiv from '../components/PlaceDiv.js';
 
 import '../styles/iconfont.css';
 
-const viewPng = require('../images/view.png');
-const hotelPng = require('../images/hotel.png');
-const resPng = require('../images/res.png');
-const trafficPng = require('../images/traffic.png');
-
 class Recline extends Component {
   constructor(props) {
     super(props);
@@ -58,7 +53,6 @@ class Recline extends Component {
         end,
         destination: des,
       });
-      console.log(this.props.location.data);
     }
   }
 
@@ -75,7 +69,7 @@ class Recline extends Component {
       .then((response) => {
         response.isLineOk = true;
         $this.setState(response, () => {
-          console.log(this.state);
+          // console.log(this.state);
         });
       });
     const res = await axios.get('/get-trip', {});
@@ -167,32 +161,6 @@ class Recline extends Component {
       </div>
     );
   }
-
-
-   renderLine = (idx) => {
-     const { lines } = this.state;
-     if (lines.length <= idx) return;
-     const line = lines[idx];
-     return (
-       <div className="line_div">
-         {/* <Image src={trafficPng} /> */}
-         <Icon inverted circular name="bus" color="green" size="large" style={{ transform: 'translateX(-1em)' }} />
-         {line.fromToName}
-         {line.description}
-         <Label basic color="teal" style={{ marginLeft: 30 }}>
-           <Icon name="blind" />
-           跟我走
-         </Label>
-         {/* <Statistic horizontal label="¥" value={line.price} floated="right" color="green" size="tiny" /> */}
-         <Statistic horizontal color="orange" size="small" floated="right">
-           <Statistic.Value style={{ fontWeight: 'bold' }}>
-             <Icon name="yen" color="orange" />
-             {line.price}
-           </Statistic.Value>
-         </Statistic>
-       </div>
-     );
-   }
 
     // TODO:价钱也需要更新
     changePlace = (item, idx, mapData, linesData) => {
@@ -362,7 +330,7 @@ class Recline extends Component {
                               <div key={idx} id={`day${idx + 1}`}>
                                 {/* 这里是用来点击滑动跳转的锚点 */}
                                 <div className="place-anchor" />
-                                <Header as="h1" icon textAlign="left" content={`DAY${idx + 1}`} color="grey" style={{ transform: 'translateX(-1em)' }} />
+                                <Header as="h1" icon textAlign="left" content={`DAY${idx + 1}`} color="grey" style={{ transform: 'translateX(-1em)', marginTop: 0 }} />
                                 <PlaceDiv items={items} idx={idx} orderId={id} changePlace={this.changePlace} refreshList={this.refreshList} lines={lines} currentDay={idx} />
                               </div>
                             ))}

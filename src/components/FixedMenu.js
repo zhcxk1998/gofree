@@ -22,7 +22,7 @@ export default class FixedMenu extends Component {
     handleLoginOutClick = () => { this.props.handleLoginOut(); }
 
     handleItemClick = (e, { index }) => {
-      document.getElementById(`seg_${index}`).scrollIntoView();
+      document.getElementById(`seg_${index}`).scrollIntoView({ behavior: 'smooth' });
       this.setState({ activeMenu: index });
     }
 
@@ -79,7 +79,7 @@ export default class FixedMenu extends Component {
                       {
                           isLogin
                             ? (
-                              <div>
+                              <div style={{ display: 'flex', alignItems: 'center' }}>
                                 <Dropdown item text={window.$wsCache.get('username')} inline>
                                   <Dropdown.Menu>
                                     <Dropdown.Item onClick={this.handleLoginOutClick}>退出</Dropdown.Item>
@@ -88,7 +88,7 @@ export default class FixedMenu extends Component {
                               </div>
                             )
                             : (
-                              <div>
+                              <div style={{ display: 'flex', alignItems: 'center' }}>
                                 <Button as="a" basic color="green" onClick={this.handleLoginClick}>登录</Button>
                                 <Button as="a" basic onClick={this.handleRegisterClick}>注册</Button>
                               </div>

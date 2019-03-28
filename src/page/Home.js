@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Button, Container, Header, Menu, Segment, Visibility, Grid, Card, Image, Form,
+  Button, Container, Header, Menu, Segment, Visibility, Grid, Card, Image, Form,Modal
 } from 'semantic-ui-react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
@@ -121,7 +121,7 @@ class Home extends Component {
       window.$wsCache.set('username', username, {
         exp: 60 * 60,
       });
-      console.log(res.result);
+      // console.log(res.result);
       $this.setState({
         userId: res.result.id,
         preferencesModalOpen: true,
@@ -358,7 +358,7 @@ class Home extends Component {
                       <Card centered fluid>
                         <Image src={item.imgUrl} fluid style={{ height: 240 }} />
                         <Card.Content>
-                          <Card.Header textAlign="center">
+                          <Card.Header textAlign ="center">
                             {item.name}
                           </Card.Header>
                           <Card.Description textAlign="center">

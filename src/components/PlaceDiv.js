@@ -6,10 +6,6 @@ import {
 import axios from '../util/axios.js';
 import gofree_mock from '../mock/gofree_mock.js';
 
-const viewPng = require('../images/view.png');
-const hotelPng = require('../images/hotel.png');
-const resPng = require('../images/res.png');
-
 export default class PlaceDiv extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +16,11 @@ export default class PlaceDiv extends Component {
       lines: this.props.lines,
       currentDay: this.props.currentDay,
     };
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextState == this.state) return false;
+    return true;
   }
 
   handleClose = () => this.setState({ isOpen: false })
@@ -148,7 +149,8 @@ export default class PlaceDiv extends Component {
     const {
       items, idx, renderLine,
     } = this.props;
-    const { places } = this.state;
+    const { places, isOpen } = this.state;
+    console.log(items);
     return (
       <div className="place-day">
         {items.map((item, index) => (
@@ -192,11 +194,11 @@ export default class PlaceDiv extends Component {
               {item.imgs.map((img, index) => (
                 index < 4 && <img src={img} alt="" />
               ))}
-              {item.imgs.length > 4 && <i className="place-more-img iconfont icon-more" />}
+              {item.imgs.length > 4 && <Popup trigger={<i className="place-more-img iconfont icon-more" />} content="更多照片..." />}
             </div>
             {/* 模态框 */}
             <Modal
-              open={this.state.isOpen}
+              open={isOpen}
               onClose={this.handleClose}
             >
               <Modal.Header>相关推荐地点</Modal.Header>
