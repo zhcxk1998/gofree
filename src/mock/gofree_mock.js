@@ -86,24 +86,24 @@ gofree_mock.onGet('/get-trip').reply(config => new Promise(((resolve, reject) =>
       trips: [
         {
           day: '1',
-          trip: '断桥残雪（10分钟） ->    白堤（20分钟）  ->    杭州酒家 ->    曲院风荷（1小时)  ->   苏堤春晓（30分钟） ->    天伦里餐厅  ->    汉庭酒店',
+          trip: ['断桥残雪(10分钟)', '白堤(20分钟)', '杭州酒家曲院风荷(1小时)', '苏堤春晓(30分钟)', '天伦里餐厅汉庭酒店'],
         },
         {
           day: '2',
-          trip: '飞来峰（30分钟）  ->    灵隐禅宗（1.5小时）  ->    杭州酒家  ->    龙井村（2小时）  ->    九溪烟树（1.5小时）  ->   天伦里餐厅  ->    汉庭酒店',
+          trip: ['柳浪闻莺(1小时)', '雷峰塔(2小时)', '龙井村(2小时)', '九溪烟树(1.5小时)', '钱塘江大桥(20分钟)'],
         },
         {
           day: '3',
-          trip: '断桥残雪（10分钟） ->    白堤（20分钟）  ->    杭州酒家 ->    曲院风荷（1小时)  ->   苏堤春晓（30分钟） ->    天伦里餐厅  ->    汉庭酒店)  ->   苏堤春晓（30分钟） ->    天伦里餐厅  ->    汉庭酒店',
+          trip: ['灵隐飞来峰(0.5小时)', '灵隐寺(1.5小时)', '三潭印月(1.5小时)', '吴山广场(2小时)', '河坊街(1小时)'],
         },
         {
           day: '4',
-          trip: '飞来峰（30分钟）  ->    灵隐禅宗（1.5小时）  ->    杭州酒家  ->    龙井村（2小时）  ->    九溪烟树（1.5小时）  ->   天伦里餐厅  ->    汉庭酒店)  ->   苏堤春晓（30分钟） ->    天伦里餐厅  ->    汉庭酒店',
+          trip: ['湿地公园(3-4小时)', '浙江大学玉泉校区(1小时)', '青芝坞(1小时)'],
         },
-        {
-          day: '5',
-          trip: '断桥残雪（10分钟） ->    白堤（20分钟）  ->    杭州酒家 ->    曲院风荷（1小时)  ->   苏堤春晓（30分钟） ->    天伦里餐厅  ->    汉庭酒店',
-        },
+          // {
+          //   day: '5',
+          //   trip: ['断桥残雪(10分钟)'],
+          // },
       ],
     },
     ]);
@@ -278,7 +278,7 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
               'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
               'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
             ],
-            type: 0, // （0 景点  1 酒店 2 饭店）
+            type: 0, // (0 景点  1 酒店 2 饭店)
           },
           {
             placeId: 2,
@@ -298,7 +298,7 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
               'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
               'https://i0.hippopx.com/photos/767/79/618/northern-california-lake-mendocino-ducks-in-a-row-lake-preview.jpg',
             ],
-            type: 0, // （0 景点  1 酒店 2 饭店）
+            type: 0, // (0 景点  1 酒店 2 饭店)
           },
           {
             placeId: 3,
@@ -317,11 +317,11 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
               'https://i0.hippopx.com/photos/914/640/967/hangzhou-the-scenery-humanities-preview.jpg',
               'https://i0.hippopx.com/photos/581/364/879/hangzhou-the-landscape-between-scenery-botanical-garden-preview.jpg',
             ],
-            type: 0, // （0 景点  1 酒店 2 饭店）
+            type: 0, // (0 景点  1 酒店 2 饭店)
           },
           {
             placeId: 4,
-            name: '楼外楼（孤山路店）',
+            name: '楼外楼(孤山路店)',
             score: 4.7,
             zanNum: 116,
             tags: [
@@ -336,7 +336,7 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
               'https://i0.hippopx.com/photos/544/231/706/take-food-bowl-vegetables-preview.jpg',
               'https://i0.hippopx.com/photos/120/420/848/food-lip-delicious-food-preview.jpg',
             ],
-            type: 2, // （0 景点  1 酒店 2 饭店）
+            type: 2, // (0 景点  1 酒店 2 饭店)
           },
           {
             placeId: 5,
@@ -355,7 +355,7 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
               'https://i0.hippopx.com/photos/337/289/143/hotel-podjavorn%C3%ADk-suite-preview.jpg',
               'https://i0.hippopx.com/photos/290/85/260/hotel-guest-room-new-preview.jpg',
             ],
-            type: 1, // （0 景点  1 酒店 2 饭店）
+            type: 1, // (0 景点  1 酒店 2 饭店)
           },
         ], [
           {
@@ -377,7 +377,7 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
               'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
               'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
             ],
-            type: 0, // （0 景点  1 酒店 2 饭店）
+            type: 0, // (0 景点  1 酒店 2 饭店)
           },
           {
             placeId: 2,
@@ -397,7 +397,7 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
               'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
               'https://i0.hippopx.com/photos/767/79/618/northern-california-lake-mendocino-ducks-in-a-row-lake-preview.jpg',
             ],
-            type: 0, // （0 景点  1 酒店 2 饭店）
+            type: 0, // (0 景点  1 酒店 2 饭店)
           },
           {
             placeId: 3,
@@ -416,11 +416,11 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
               'https://i0.hippopx.com/photos/914/640/967/hangzhou-the-scenery-humanities-preview.jpg',
               'https://i0.hippopx.com/photos/581/364/879/hangzhou-the-landscape-between-scenery-botanical-garden-preview.jpg',
             ],
-            type: 0, // （0 景点  1 酒店 2 饭店）
+            type: 0, // (0 景点  1 酒店 2 饭店)
           },
           {
             placeId: 4,
-            name: '楼外楼（孤山路店）',
+            name: '楼外楼(孤山路店)',
             score: 4.7,
             zanNum: 116,
             tags: [
@@ -435,7 +435,7 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
               'https://i0.hippopx.com/photos/544/231/706/take-food-bowl-vegetables-preview.jpg',
               'https://i0.hippopx.com/photos/120/420/848/food-lip-delicious-food-preview.jpg',
             ],
-            type: 2, // （0 景点  1 酒店 2 饭店）
+            type: 2, // (0 景点  1 酒店 2 饭店)
           },
           {
             placeId: 5,
@@ -454,7 +454,7 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
               'https://i0.hippopx.com/photos/337/289/143/hotel-podjavorn%C3%ADk-suite-preview.jpg',
               'https://i0.hippopx.com/photos/290/85/260/hotel-guest-room-new-preview.jpg',
             ],
-            type: 1, // （0 景点  1 酒店 2 饭店）
+            type: 1, // (0 景点  1 酒店 2 饭店)
           },
         ],
       ],
@@ -465,50 +465,50 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
             fromToName: '西湖 - 断桥残雪',
             description: '驾车约30分钟，相距3.1公里',
             price: 27,
-            type: 0, // （0 驾车  1 公交 2 步行）
+            type: 0, // (0 驾车  1 公交 2 步行)
           },
           {
             fromToName: '断桥残雪 - 曲院风荷',
             description: '驾车约50分钟，相距4.7公里',
             price: 45,
-            type: 0, // （0 驾车  1 公交 2 步行）
+            type: 0, // (0 驾车  1 公交 2 步行)
           },
           {
-            fromToName: '曲院风荷 - 楼外楼（孤山路店）',
+            fromToName: '曲院风荷 - 楼外楼(孤山路店)',
             description: '步行约10分钟，相距1公里',
             price: 0,
-            type: 2, // （0 驾车  1 公交 2 步行）
+            type: 2, // (0 驾车  1 公交 2 步行)
           },
           {
-            fromToName: '楼外楼（孤山路店） - 汉庭酒店',
+            fromToName: '楼外楼(孤山路店) - 汉庭酒店',
             description: '公交约15分钟，相距3公里',
             price: 2,
-            type: 1, // （0 驾车  1 公交 2 步行）
+            type: 1, // (0 驾车  1 公交 2 步行)
           },
         ], [
           {
             fromToName: '西湖 - 断桥残雪',
             description: '驾车约30分钟，相距3.1公里',
             price: 27,
-            type: 0, // （0 驾车  1 公交 2 步行）
+            type: 0, // (0 驾车  1 公交 2 步行)
           },
           {
             fromToName: '断桥残雪 - 曲院风荷',
             description: '驾车约50分钟，相距4.7公里',
             price: 45,
-            type: 0, // （0 驾车  1 公交 2 步行）
+            type: 0, // (0 驾车  1 公交 2 步行)
           },
           {
-            fromToName: '曲院风荷 - 楼外楼（孤山路店）',
+            fromToName: '曲院风荷 - 楼外楼(孤山路店)',
             description: '步行约10分钟，相距1公里',
             price: 2,
-            type: 2, // （0 驾车  1 公交 2 步行）
+            type: 2, // (0 驾车  1 公交 2 步行)
           },
           {
-            fromToName: '楼外楼（孤山路店） - 汉庭酒店',
+            fromToName: '楼外楼(孤山路店) - 汉庭酒店',
             description: '公交约15分钟，相距3公里',
             price: 2,
-            type: 1, // （0 驾车  1 公交 2 步行）
+            type: 1, // (0 驾车  1 公交 2 步行)
           },
         ]],
     }]);
@@ -635,12 +635,12 @@ gofree_mock.onPost('/select-replace').reply(200, {
   msg: '',
   relate_lines: [
     {
-      fromToName: '西湖 - 杭州酒家（延安路店)ss',
+      fromToName: '西湖 - 杭州酒家(延安路店)ss',
       description: '公交约20分钟，相距3.1公里',
       price: 2,
     },
     {
-      fromToName: '西湖 - 杭州酒家（延安路店)sss',
+      fromToName: '西湖 - 杭州酒家(延安路店)sss',
       description: '公交约20分钟，相距3.1公里',
       price: 2,
     },
@@ -710,7 +710,7 @@ gofree_mock.onPost('/refresh-all').reply(200, {
         'http://cdn.algbb.fun/emoji/32.png',
         'http://cdn.algbb.fun/emoji/32.png',
       ],
-      type: 0, // （0 景点  1 酒店 2 饭店）
+      type: 0, // (0 景点  1 酒店 2 饭店)
     },
     {
       placeId: 2,
@@ -730,7 +730,7 @@ gofree_mock.onPost('/refresh-all').reply(200, {
         'http://cdn.algbb.fun/emoji/32.png',
         'http://cdn.algbb.fun/emoji/32.png',
       ],
-      type: 1, // （0 景点  1 酒店 2 饭店）
+      type: 1, // (0 景点  1 酒店 2 饭店)
     },
     {
       placeId: 3,
@@ -750,7 +750,7 @@ gofree_mock.onPost('/refresh-all').reply(200, {
         'http://cdn.algbb.fun/emoji/32.png',
         'http://cdn.algbb.fun/emoji/32.png',
       ],
-      type: 2, // （0 景点  1 酒店 2 饭店）
+      type: 2, // (0 景点  1 酒店 2 饭店)
     },
     {
       placeId: 4,
@@ -770,23 +770,23 @@ gofree_mock.onPost('/refresh-all').reply(200, {
         'http://cdn.algbb.fun/emoji/32.png',
         'http://cdn.algbb.fun/emoji/32.png',
       ],
-      type: 0, // （0 景点  1 酒店 2 饭店）
+      type: 0, // (0 景点  1 酒店 2 饭店)
     },
   ],
   /** 路线信息 地点数量-1* */
   lines: [
     {
-      fromToName: '西湖 - 杭州酒家（延安路店)',
+      fromToName: '西湖 - 杭州酒家(延安路店)',
       description: '公交约20分钟，相距3.1公里',
       price: 2,
     },
     {
-      fromToName: '西湖 - 杭州酒家（延安路店)',
+      fromToName: '西湖 - 杭州酒家(延安路店)',
       description: '公交约20分钟，相距3.1公里',
       price: 2,
     },
     {
-      fromToName: '西湖 - 杭州酒家（延安路店)',
+      fromToName: '西湖 - 杭州酒家(延安路店)',
       description: '公交约20分钟，相距3.1公里',
       price: 2,
     },

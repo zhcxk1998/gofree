@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Button, Menu, Container, Grid, Header, Icon, Image, Label, List, Statistic, Message, Popup, Dimmer, Loader, Divider,
 } from 'semantic-ui-react';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter, Redirect, Link } from 'react-router-dom';
 import axios from '../util/axios.js';
 import gofree_mock from '../mock/gofree_mock.js';
 
@@ -73,6 +73,9 @@ class Recline extends Component {
         });
       });
     const res = await axios.get('/get-trip', {});
+    res.trips.map((item) => {
+      item.trip = item.trip.join('#→#').split('#');
+    });
     this.setState({ trips: res.trips });
     window.onscroll = () => {
       const dayMenu = document.getElementById('dayMenu');
@@ -80,6 +83,10 @@ class Recline extends Component {
         dayIntoView: window.scrollY + 72 > dayMenu.offsetTop,
       });
     };
+  }
+
+  componentWillUnmount() {
+    window.onscroll = null;
   }
 
   renderTrip() {
@@ -95,7 +102,11 @@ class Recline extends Component {
               </Statistic>
             </Grid.Column>
             <Grid.Column width={14} style={{ display: 'flex', alignItems: 'center' }}>
-              {item.trip}
+              <p className="trip-wrap">
+                {item.trip.map((item, index) => (
+                  index % 2 === 0 ? <Link to="#">{item}</Link> : <img src="https://cdn.algbb.fun/ImageMessages/BB_1553839895303_width_32_height_32_" height="24px" alt="" />
+                ))}
+              </p>
             </Grid.Column>
           </Grid.Row>
         ))}
@@ -307,7 +318,7 @@ class Recline extends Component {
                           </Grid.Column>
 
                         </Grid.Row>,
-                        <Divider />,
+                        <Divider key="divider" />,
                         <Grid.Row key="title"><Grid.Column width={16}><Header as="h1" icon textAlign="left" content="行程详情" style={{ width: '100%' }} /></Grid.Column></Grid.Row>,
                         <Grid.Row key="detail" className="line_grid_row" id="dayMenu">
                           <Grid.Column width={2}>

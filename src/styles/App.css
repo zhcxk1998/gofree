@@ -415,3 +415,22 @@ body {
 .place-anchor{
   transform: translateY(-100px);
 }
+
+.trip-wrap{
+  line-height: 24px;
+}
+
+.trip-wrap a{
+  color: #333;
+  text-decoration: none;
+}
+
+.trip-wrap a:hover{
+  color: #21ba45;
+  text-decoration: underline;
+}
+
+.trip-wrap img{
+  margin: 0 10px;
+  transform: translateY(6px);
+}

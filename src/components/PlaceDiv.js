@@ -131,7 +131,7 @@ export default class PlaceDiv extends Component {
         <div className="place_imgs">
           <Image.Group size="small">
             {item.imgs.map((img, index) => (
-              index < 4 && <Image src={img} />
+              index < 4 && <Image src={img} key={img} />
             ))}
           </Image.Group>
         </div>
@@ -150,11 +150,10 @@ export default class PlaceDiv extends Component {
       items, idx, renderLine,
     } = this.props;
     const { places, isOpen } = this.state;
-    console.log(items);
     return (
       <div className="place-day">
         {items.map((item, index) => (
-          <div className="place_div">
+          <div className="place_div" key={index}>
             <div className="place_total">
               {this.renderTypeIcon(item.type)}
               <span style={{ fontSize: 20, fontWeight: 'bold' }}>{item.name}</span>
@@ -193,7 +192,7 @@ export default class PlaceDiv extends Component {
             </div>
             <div className="place_imgs">
               {item.imgs.map((img, index) => (
-                index < 4 && <img src={img} alt="" />
+                index < 4 && <img src={img} alt="" key={img} />
               ))}
               {item.imgs.length > 4 && <Popup trigger={<i className="place-more-img iconfont icon-more" />} content="更多照片..." />}
             </div>
