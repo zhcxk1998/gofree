@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Button, Icon, Modal, Grid, Card, Image,
 } from 'semantic-ui-react';
-import axios from '../util/axios.js';
+import axios from '../util/axios';
 
 class PreferencesModal extends Component {
   constructor(props) {

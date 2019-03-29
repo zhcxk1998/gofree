@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, List } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 export default class HeaderNav extends Component {
   constructor(props) {

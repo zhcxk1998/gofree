@@ -4,11 +4,11 @@ import {
 } from 'semantic-ui-react';
 import { withRouter, Redirect, Link } from 'react-router-dom';
 import axios from '../util/axios.js';
-import gofree_mock from '../mock/gofree_mock.js';
+import gofree_mock from '../mock/gofree_mock';
 
-import HeaderNav from '../components/HeaderNav.js';
-import BaiduMap from '../components/BaiduMap.js';
-import PlaceDiv from '../components/PlaceDiv.js';
+import HeaderNav from '../components/HeaderNav';
+import BaiduMap from '../components/BaiduMap';
+import PlaceDiv from '../components/PlaceDiv';
 
 import '../styles/iconfont.css';
 

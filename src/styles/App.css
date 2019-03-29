@@ -427,7 +427,7 @@ body {
 
 .trip-wrap a:hover{
   color: #21ba45;
-  text-decoration: underline;
+  border-bottom: #21ba45 1px solid;
 }
 
 .trip-wrap img{

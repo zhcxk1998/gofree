@@ -5,22 +5,22 @@ import {
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 import { withRouter } from 'react-router-dom';
-import axios from '../util/axios.js';
-import gofree_mock from '../mock/gofree_mock.js';
+import axios from '../util/axios';
+import gofree_mock from '../mock/gofree_mock';
 
-import FixedMenu from '../components/FixedMenu.js';
-import Footer from '../components/Footer.js';
-import AutoSuggest from '../components/AutoSuggest.js';
-import VideoModal from '../components/VideoModal.js';
-import LoginModal from '../components/LoginModal.js';
-import RegisterModal from '../components/RegisterModal.js';
-import PreferencesModal from '../components/PreferencesModal.js';
+import FixedMenu from '../components/FixedMenu';
+import Footer from '../components/Footer';
+import AutoSuggest from '../components/AutoSuggest';
+import VideoModal from '../components/VideoModal';
+import LoginModal from '../components/LoginModal';
+import RegisterModal from '../components/RegisterModal';
+import PreferencesModal from '../components/PreferencesModal';
 
 import './style.css';
 
-import { citys } from '../data/city.js';
-import { MONTHS, WEEKDAYS_LONG, WEEKDAYS_SHORT } from '../data/date.js';
-import { recVideos } from '../data/recVideo.js';
+import { citys } from '../data/city';
+import { MONTHS, WEEKDAYS_LONG, WEEKDAYS_SHORT } from '../data/date';
+import { recVideos } from '../data/recVideo';
 
 class Home extends Component {
   constructor(props) {
@@ -47,7 +47,8 @@ class Home extends Component {
     //   this.state = {isLogin: false};
     // }
 
-    gofree_mock.restore();
+    // 这东东会让第一次请求mock数据时候提示网络异常
+    // gofree_mock.restore();
   }
 
   handleItemClick = (e, { index }) => this.setState({ activeMenu: index })

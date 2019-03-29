@@ -16,7 +16,7 @@ export default class BaiduMap extends Component {
   componentWillMount() {
     // 注意callback=init参数不能去掉，因为这是百度地图异步加载的接口，
     // 否则，会因为React异步创建了script，百度返回的script中又调用document.write()，从而触发错误
-    const bmapSrc = `http://api.map.baidu.com/api?v=2.0&ak=${this.props.ak}&callback=init`;
+    const bmapSrc = `https://api.map.baidu.com/api?v=2.0&ak=${this.props.ak}&callback=init`;
     if (typeof BMap !== 'undefined') {
       return;
     }

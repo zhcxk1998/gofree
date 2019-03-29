@@ -3,8 +3,8 @@ import {
   Button, Icon, Image, Label, Statistic, Popup, Modal, Grid,
 } from 'semantic-ui-react';
 
-import axios from '../util/axios.js';
-import gofree_mock from '../mock/gofree_mock.js';
+import axios from '../util/axios';
+import gofree_mock from '../mock/gofree_mock';
 
 export default class PlaceDiv extends Component {
   constructor(props) {

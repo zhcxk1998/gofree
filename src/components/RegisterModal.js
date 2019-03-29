@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Button, Modal, Embed, Form, Message,
 } from 'semantic-ui-react';
-import axios from '../util/axios.js';
+import axios from '../util/axios';
 
 
 export default class RegisterModal extends Component {

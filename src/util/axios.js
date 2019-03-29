@@ -15,13 +15,14 @@ axios.interceptors.request.use((config) => {
 
 
 axios.interceptors.response.use((res) => {
-  if (res.data.code != 200) {
+  if (res.data.code !== 200) {
     alert(res.data.msg);
     return null;
   }
   return res.data;
 }, (error) => {
   alert('网络异常！');
+  console.log(error);
   return Promise.reject(error);
 });
 

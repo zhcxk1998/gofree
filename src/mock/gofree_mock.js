@@ -100,17 +100,13 @@ gofree_mock.onGet('/get-trip').reply(config => new Promise(((resolve, reject) =>
           day: '4',
           trip: ['湿地公园(3-4小时)', '浙江大学玉泉校区(1小时)', '青芝坞(1小时)'],
         },
-          // {
-          //   day: '5',
-          //   trip: ['断桥残雪(10分钟)'],
-          // },
       ],
     },
     ]);
-  }, 100);
+  }, 2000);
 })));
 
-// 延迟5秒
+// 延迟2秒
 gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) => {
   setTimeout(() => {
     resolve([200, {
@@ -456,6 +452,204 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
             ],
             type: 1, // (0 景点  1 酒店 2 饭店)
           },
+        ], [
+          {
+            placeId: 1,
+            name: '西湖',
+            score: 4.9,
+            zanNum: 1321,
+            tags: [
+              '情侣出行',
+              '风景名胜',
+              '必去',
+            ],
+            description: '旅行方式目的地出发时间返程时间民俗特色杭州2018-04-142018-04-18西湖西湖无疑是杭州之美的代表，著名的“西湖十景”环绕湖边，自然与人文相互映衬，组成了杭州旅行的核心地带。你不必执着于走遍每个景点，倒可以花上半天或一天在湖边徜徉一番，无论怎么玩，都让人心情舒畅。旅行方式目的地出发时间返程时间民俗特色杭州2018-04-142018-04-18西湖西湖无疑是杭州之美的代表，著名的“西湖十景”环绕湖边，自然与人文相互映衬，组成了杭州旅行的核心地带。你不必执着于走遍每个景点，倒可以花上半天或一天在湖边徜徉一番，无论怎么玩，都让人心情舒畅。',
+            price: 320,
+            imgs: [
+              'https://i0.hippopx.com/photos/640/861/188/the-summer-palace-kunming-lake-beijing-preview.jpg',
+              'https://i0.hippopx.com/photos/579/914/396/hangzhou-west-lake-ching-ming-ship-preview.jpg',
+              'https://i0.hippopx.com/photos/66/390/567/west-lake-the-scenery-character-sunset-preview.jpg',
+              'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
+              'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
+            ],
+            type: 0, // (0 景点  1 酒店 2 饭店)
+          },
+          {
+            placeId: 2,
+            name: '断桥残雪',
+            score: 5.0,
+            zanNum: 123,
+            tags: [
+              '家庭出游',
+              '冬天很美',
+            ],
+            description: '是《白蛇传》中许仙、白娘子的相会之地，也给这座长桥平添许多浪漫色彩。冬雪初下，桥的阳面冰雪消融，但阴面仍被残雪覆盖，从高处看桥似断非断，形成著名的“断桥残雪”。可以作为游玩西湖的起点。从断桥上白堤去孤山，依次游玩西湖周边的各个景点。',
+            price: 120,
+            imgs: [
+              'https://i0.hippopx.com/photos/222/216/35/sunset-west-lake-hanoi-vietnam-preview.jpg',
+              'https://i0.hippopx.com/photos/359/587/580/china-hangzhou-west-lake-sunset-preview.jpg',
+              'https://i0.hippopx.com/photos/496/893/91/west-lake-sunset-bridges-silhouette-preview.jpg',
+              'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
+              'https://i0.hippopx.com/photos/767/79/618/northern-california-lake-mendocino-ducks-in-a-row-lake-preview.jpg',
+            ],
+            type: 0, // (0 景点  1 酒店 2 饭店)
+          },
+          {
+            placeId: 3,
+            name: '曲院风荷',
+            score: 4.5,
+            zanNum: 121,
+            tags: [
+              '荷花超美',
+              '放松身心',
+            ],
+            description: '西湖十景之一，其所在的风荷公园内栽培了上百个品种的荷花，夏季显出分外迷人的吸引力。南宋时，此地有一座官家酿酒作坊，取金沙涧的溪水造曲酒。附近种有菱荷，每当夏日风起，酒香荷香沁人心脾，故称“曲院风荷”。 莲叶田田，菡萏妖娆。水面上架设了造型各异的小桥，人从桥上过，如在荷中行。',
+            price: 80,
+            imgs: [
+              'https://i0.hippopx.com/photos/918/177/197/china-hangzhou-west-lake-preview.jpg',
+              'https://i0.hippopx.com/photos/307/98/487/lake-hangzhou-the-scenery-preview.jpg',
+              'https://i0.hippopx.com/photos/914/640/967/hangzhou-the-scenery-humanities-preview.jpg',
+              'https://i0.hippopx.com/photos/581/364/879/hangzhou-the-landscape-between-scenery-botanical-garden-preview.jpg',
+            ],
+            type: 0, // (0 景点  1 酒店 2 饭店)
+          },
+          {
+            placeId: 4,
+            name: '楼外楼(孤山路店)',
+            score: 4.7,
+            zanNum: 116,
+            tags: [
+              '西湖醋鱼',
+              '老字号',
+              '农井虾仁',
+            ],
+            description: '杭帮菜老字号，古诗有云：“西湖醋鱼何处美，独数杭州楼外楼”',
+            price: 180,
+            imgs: [
+              'https://i0.hippopx.com/photos/313/831/719/shrimp-seafood-mexican-food-preview.jpg',
+              'https://i0.hippopx.com/photos/544/231/706/take-food-bowl-vegetables-preview.jpg',
+              'https://i0.hippopx.com/photos/120/420/848/food-lip-delicious-food-preview.jpg',
+            ],
+            type: 2, // (0 景点  1 酒店 2 饭店)
+          },
+          {
+            placeId: 5,
+            name: '汉庭酒店',
+            score: 4.9,
+            zanNum: 239,
+            tags: [
+              '店员热情',
+              '大床很舒服',
+            ],
+            description: '汉庭酒店是华住酒店集团的创始品牌。华住创始人季琦先生，在连续成功创办了“携程旅行网”(NASDAQ:CTRP)、“如家快捷酒店”(NASDAQ:HMIN) 两家纳斯达克上市公司之后，于2005年第三次创业，推出汉庭酒店，并曾一度以“汉庭”命名集团，后于2012年正式启用“华住”作为集团名称。',
+            price: 250,
+            imgs: [
+              'https://i0.hippopx.com/photos/690/622/456/hotel-hallway-hotel-hallway-lights-preview.jpg',
+              'https://i0.hippopx.com/photos/967/606/545/bed-double-bed-hotel-room-preview.jpg',
+              'https://i0.hippopx.com/photos/337/289/143/hotel-podjavorn%C3%ADk-suite-preview.jpg',
+              'https://i0.hippopx.com/photos/290/85/260/hotel-guest-room-new-preview.jpg',
+            ],
+            type: 1, // (0 景点  1 酒店 2 饭店)
+          },
+        ], [
+          {
+            placeId: 1,
+            name: '西湖',
+            score: 4.9,
+            zanNum: 1321,
+            tags: [
+              '情侣出行',
+              '风景名胜',
+              '必去',
+            ],
+            description: '旅行方式目的地出发时间返程时间民俗特色杭州2018-04-142018-04-18西湖西湖无疑是杭州之美的代表，著名的“西湖十景”环绕湖边，自然与人文相互映衬，组成了杭州旅行的核心地带。你不必执着于走遍每个景点，倒可以花上半天或一天在湖边徜徉一番，无论怎么玩，都让人心情舒畅。旅行方式目的地出发时间返程时间民俗特色杭州2018-04-142018-04-18西湖西湖无疑是杭州之美的代表，著名的“西湖十景”环绕湖边，自然与人文相互映衬，组成了杭州旅行的核心地带。你不必执着于走遍每个景点，倒可以花上半天或一天在湖边徜徉一番，无论怎么玩，都让人心情舒畅。',
+            price: 320,
+            imgs: [
+              'https://i0.hippopx.com/photos/640/861/188/the-summer-palace-kunming-lake-beijing-preview.jpg',
+              'https://i0.hippopx.com/photos/579/914/396/hangzhou-west-lake-ching-ming-ship-preview.jpg',
+              'https://i0.hippopx.com/photos/66/390/567/west-lake-the-scenery-character-sunset-preview.jpg',
+              'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
+              'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
+            ],
+            type: 0, // (0 景点  1 酒店 2 饭店)
+          },
+          {
+            placeId: 2,
+            name: '断桥残雪',
+            score: 5.0,
+            zanNum: 123,
+            tags: [
+              '家庭出游',
+              '冬天很美',
+            ],
+            description: '是《白蛇传》中许仙、白娘子的相会之地，也给这座长桥平添许多浪漫色彩。冬雪初下，桥的阳面冰雪消融，但阴面仍被残雪覆盖，从高处看桥似断非断，形成著名的“断桥残雪”。可以作为游玩西湖的起点。从断桥上白堤去孤山，依次游玩西湖周边的各个景点。',
+            price: 120,
+            imgs: [
+              'https://i0.hippopx.com/photos/222/216/35/sunset-west-lake-hanoi-vietnam-preview.jpg',
+              'https://i0.hippopx.com/photos/359/587/580/china-hangzhou-west-lake-sunset-preview.jpg',
+              'https://i0.hippopx.com/photos/496/893/91/west-lake-sunset-bridges-silhouette-preview.jpg',
+              'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
+              'https://i0.hippopx.com/photos/767/79/618/northern-california-lake-mendocino-ducks-in-a-row-lake-preview.jpg',
+            ],
+            type: 0, // (0 景点  1 酒店 2 饭店)
+          },
+          {
+            placeId: 3,
+            name: '曲院风荷',
+            score: 4.5,
+            zanNum: 121,
+            tags: [
+              '荷花超美',
+              '放松身心',
+            ],
+            description: '西湖十景之一，其所在的风荷公园内栽培了上百个品种的荷花，夏季显出分外迷人的吸引力。南宋时，此地有一座官家酿酒作坊，取金沙涧的溪水造曲酒。附近种有菱荷，每当夏日风起，酒香荷香沁人心脾，故称“曲院风荷”。 莲叶田田，菡萏妖娆。水面上架设了造型各异的小桥，人从桥上过，如在荷中行。',
+            price: 80,
+            imgs: [
+              'https://i0.hippopx.com/photos/918/177/197/china-hangzhou-west-lake-preview.jpg',
+              'https://i0.hippopx.com/photos/307/98/487/lake-hangzhou-the-scenery-preview.jpg',
+              'https://i0.hippopx.com/photos/914/640/967/hangzhou-the-scenery-humanities-preview.jpg',
+              'https://i0.hippopx.com/photos/581/364/879/hangzhou-the-landscape-between-scenery-botanical-garden-preview.jpg',
+            ],
+            type: 0, // (0 景点  1 酒店 2 饭店)
+          },
+          {
+            placeId: 4,
+            name: '楼外楼(孤山路店)',
+            score: 4.7,
+            zanNum: 116,
+            tags: [
+              '西湖醋鱼',
+              '老字号',
+              '农井虾仁',
+            ],
+            description: '杭帮菜老字号，古诗有云：“西湖醋鱼何处美，独数杭州楼外楼”',
+            price: 180,
+            imgs: [
+              'https://i0.hippopx.com/photos/313/831/719/shrimp-seafood-mexican-food-preview.jpg',
+              'https://i0.hippopx.com/photos/544/231/706/take-food-bowl-vegetables-preview.jpg',
+              'https://i0.hippopx.com/photos/120/420/848/food-lip-delicious-food-preview.jpg',
+            ],
+            type: 2, // (0 景点  1 酒店 2 饭店)
+          },
+          {
+            placeId: 5,
+            name: '汉庭酒店',
+            score: 4.9,
+            zanNum: 239,
+            tags: [
+              '店员热情',
+              '大床很舒服',
+            ],
+            description: '汉庭酒店是华住酒店集团的创始品牌。华住创始人季琦先生，在连续成功创办了“携程旅行网”(NASDAQ:CTRP)、“如家快捷酒店”(NASDAQ:HMIN) 两家纳斯达克上市公司之后，于2005年第三次创业，推出汉庭酒店，并曾一度以“汉庭”命名集团，后于2012年正式启用“华住”作为集团名称。',
+            price: 250,
+            imgs: [
+              'https://i0.hippopx.com/photos/690/622/456/hotel-hallway-hotel-hallway-lights-preview.jpg',
+              'https://i0.hippopx.com/photos/967/606/545/bed-double-bed-hotel-room-preview.jpg',
+              'https://i0.hippopx.com/photos/337/289/143/hotel-podjavorn%C3%ADk-suite-preview.jpg',
+              'https://i0.hippopx.com/photos/290/85/260/hotel-guest-room-new-preview.jpg',
+            ],
+            type: 1, // (0 景点  1 酒店 2 饭店)
+          },
         ],
       ],
       /** 路线信息 地点数量-1* */
@@ -510,9 +704,59 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
             price: 2,
             type: 1, // (0 驾车  1 公交 2 步行)
           },
+        ], [
+          {
+            fromToName: '西湖 - 断桥残雪',
+            description: '驾车约30分钟，相距3.1公里',
+            price: 27,
+            type: 0, // (0 驾车  1 公交 2 步行)
+          },
+          {
+            fromToName: '断桥残雪 - 曲院风荷',
+            description: '驾车约50分钟，相距4.7公里',
+            price: 45,
+            type: 0, // (0 驾车  1 公交 2 步行)
+          },
+          {
+            fromToName: '曲院风荷 - 楼外楼(孤山路店)',
+            description: '步行约10分钟，相距1公里',
+            price: 0,
+            type: 2, // (0 驾车  1 公交 2 步行)
+          },
+          {
+            fromToName: '楼外楼(孤山路店) - 汉庭酒店',
+            description: '公交约15分钟，相距3公里',
+            price: 2,
+            type: 1, // (0 驾车  1 公交 2 步行)
+          },
+        ], [
+          {
+            fromToName: '西湖 - 断桥残雪',
+            description: '驾车约30分钟，相距3.1公里',
+            price: 27,
+            type: 0, // (0 驾车  1 公交 2 步行)
+          },
+          {
+            fromToName: '断桥残雪 - 曲院风荷',
+            description: '驾车约50分钟，相距4.7公里',
+            price: 45,
+            type: 0, // (0 驾车  1 公交 2 步行)
+          },
+          {
+            fromToName: '曲院风荷 - 楼外楼(孤山路店)',
+            description: '步行约10分钟，相距1公里',
+            price: 2,
+            type: 2, // (0 驾车  1 公交 2 步行)
+          },
+          {
+            fromToName: '楼外楼(孤山路店) - 汉庭酒店',
+            description: '公交约15分钟，相距3公里',
+            price: 2,
+            type: 1, // (0 驾车  1 公交 2 步行)
+          },
         ]],
     }]);
-  }, 100);
+  }, 2000);
 })));
 
 gofree_mock.onGet('/get-more').reply(200, {
