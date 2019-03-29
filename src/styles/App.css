@@ -245,8 +245,8 @@ body {
 }
 
 .place_imgs {
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
   position: relative;
   margin-left: 60px;
 }
@@ -260,9 +260,11 @@ body {
 
 .place-more-img{
   position: absolute;
+  top: 50%;
   right: 0;
-  font-size: 30px !important;
   color: #999;
+  font-size: 30px !important;
+  transform: translateY(-50%);
 }
 
 .line_div {

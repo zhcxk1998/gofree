@@ -157,7 +157,8 @@ export default class PlaceDiv extends Component {
           <div className="place_div">
             <div className="place_total">
               {this.renderTypeIcon(item.type)}
-              {item.name}
+              <span style={{ fontSize: 20, fontWeight: 'bold' }}>{item.name}</span>
+              &nbsp;&nbsp;
               <Label color="red" basic>
                 {item.score}
 分
@@ -205,7 +206,7 @@ export default class PlaceDiv extends Component {
               <Modal.Content image scrolling>
                 <Grid>
                   {places.map((item, idx) => (
-                    <div key={idx} style={{ display: 'block' }}>
+                    <div key={idx} style={{ display: 'block', width: '100%' }}>
                       {this.renderModalPlaceDiv(item, idx)}
                     </div>
                   ))}
