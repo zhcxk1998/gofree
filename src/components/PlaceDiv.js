@@ -103,13 +103,14 @@ export default class PlaceDiv extends Component {
       <div className="place_div_modal">
         <div className="place_total">
           {iconHtml}
-          {item.name}
-          <Label color="green" basic>
+          <b>{item.name}</b>
+          &nbsp;&nbsp;
+          <Label color="red" basic>
             {item.score}
 分
           </Label>
 &nbsp;&nbsp;
-          <Label as="a" image color="green" basic>
+          <Label as="a" image color="yellow" basic>
             <Icon name="thumbs outline up" />
             {item.zanNum}
 觉得很赞
@@ -119,8 +120,12 @@ export default class PlaceDiv extends Component {
             <Icon name="heart" />
                       替换
           </Button>
-          <Statistic horizontal label="¥" value={item.price} floated="right" color="red" size="tiny" />
-
+          <Statistic horizontal color="orange" size="small" floated="right">
+            <Statistic.Value style={{ fontWeight: 'bold' }}>
+              <Icon name="yen" color="orange" />
+              {item.price}
+            </Statistic.Value>
+          </Statistic>
         </div>
         <div className="place_tags">
           {tagsHtml}
@@ -131,7 +136,7 @@ export default class PlaceDiv extends Component {
         <div className="place_imgs">
           <Image.Group size="small">
             {item.imgs.map((img, index) => (
-              index < 4 && <Image src={img} key={img} />
+              index < 4 && <Image src={img} key={index} />
             ))}
           </Image.Group>
         </div>
@@ -200,6 +205,7 @@ export default class PlaceDiv extends Component {
             <Modal
               open={isOpen}
               onClose={this.handleClose}
+              size="large"
             >
               <Modal.Header>相关推荐地点</Modal.Header>
               <Modal.Content image scrolling>

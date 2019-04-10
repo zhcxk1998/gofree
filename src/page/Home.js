@@ -177,6 +177,7 @@ class Home extends Component {
     const {
       preferencesModalOpen, isLogin, visible, activeMenu, formType, videoModalOpen, videoUrl, loginModalOpen, registerModalOpen,
     } = this.state;
+    console.log(this.state.formStartDay,this.state.formEndDay);
     return (
       <div>
 
