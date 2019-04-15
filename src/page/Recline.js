@@ -69,7 +69,7 @@ class Recline extends Component {
       .then((response) => {
         response.isLineOk = true;
         $this.setState(response, () => {
-          // console.log(this.state);
+          // console.table(response);
         });
       });
     const res = await axios.get('/get-trip', {});
@@ -173,30 +173,41 @@ class Recline extends Component {
     );
   }
 
-    // TODO:价钱也需要更新
-    changePlace = (item, idx, mapData, linesData) => {
-      const {
-        places, lines, map, mapChangeFlag,
-      } = this.state;
-      places[idx] = item;
-      if (idx === 0) {
-        lines[0] = linesData[0];
-      } else if (idx === places.length - 1) {
-        lines[lines.length - 1] = linesData[0];
-      } else {
-        lines[idx - 1] = linesData[0];
-        lines[idx] = linesData[1];
-      }
-      const new_points = map.points;
-      new_points[idx] = mapData;
-      map.points = new_points;
-      this.setState({
-        places,
-        lines,
-        map,
-        mapChangeFlag: mapChangeFlag + 1,
-      });
+  // TODO:价钱也需要更新
+  changePlace = (item, replaceDay, replaceId, mapData, linesData) => {
+    // const {
+    //   places, lines, map, mapChangeFlag,
+    // } = this.state;
+    // places[idx] = item;
+    // if (idx === 0) {
+    //   lines[0] = linesData[0];
+    // } else if (idx === places.length - 1) {
+    //   lines[lines.length - 1] = linesData[0];
+    // } else {
+    //   lines[idx - 1] = linesData[0];
+    //   lines[idx] = linesData[1];
+    // }
+    // const new_points = map.points;
+    // new_points[idx] = mapData;
+    // map.points = new_points;
+    // this.setState({
+    //   places,
+    //   lines,
+    //   map,
+    //   mapChangeFlag: mapChangeFlag + 1,
+    // });
+    const { places, lines } = this.state;
+    places[replaceDay][replaceId] = item;
+    for (let id = 1; id < places[replaceDay].length; id += 1) {
+      lines[replaceDay][id - 1].fromToName = `${places[replaceDay][id - 1].name} - ${places[replaceDay][id].name}`;
+      lines[replaceDay][id - 1].price = Math.floor(Math.random() * 50);
+      lines[replaceDay][id - 1].description = `驾车约${Math.floor(Math.random() * 100)}分钟，相距${Math.floor(Math.random() * 100) / 10}公里`;
     }
+    this.setState({
+      places,
+      lines,
+    });
+  }
 
     refreshList = () => {
       const {
@@ -316,7 +327,6 @@ class Recline extends Component {
                             </div>
                             {this.renderMap()}
                           </Grid.Column>
-
                         </Grid.Row>,
                         <Divider key="divider" />,
                         <Grid.Row key="title"><Grid.Column width={16}><Header as="h1" icon textAlign="left" content="行程详情" style={{ width: '100%' }} /></Grid.Column></Grid.Row>,
