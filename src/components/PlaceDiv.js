@@ -66,7 +66,6 @@ export default class PlaceDiv extends Component {
   }
 
   showMore = (placeId, idx, index) => {
-    const { places, recommendPlaces } = this.state;
     this.setState({
       replaceDay: idx,
       replaceId: index,
@@ -252,7 +251,7 @@ export default class PlaceDiv extends Component {
               <Modal.Content image scrolling>
                 <div>
                   <Dimmer active={refreshed} inverted>
-                    <Loader inverted>Loading</Loader>
+                    <Loader inverted>Loading...</Loader>
                   </Dimmer>
                   <Grid>
                     {recommendPlaces.length !== 0 && recommendPlaces.map((place, idx) => (

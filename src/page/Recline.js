@@ -26,7 +26,7 @@ class Recline extends Component {
       destination: '',
       start: '',
       end: '',
-      price: 2000,
+      price: 5780,
       places: [],
       lines: [],
       trips: [],
@@ -104,7 +104,7 @@ class Recline extends Component {
             <Grid.Column width={14} style={{ display: 'flex', alignItems: 'center' }}>
               <p className="trip-wrap">
                 {item.trip.map((item, index) => (
-                  index % 2 === 0 ? <Link to="#">{item}</Link> : <img src="https://cdn.algbb.fun/ImageMessages/BB_1553839895303_width_32_height_32_" height="24px" alt="" />
+                  index % 2 === 0 ? <Link key={index} to="#">{item}</Link> : <img key={index} src="https://cdn.algbb.fun/ImageMessages/BB_1553839895303_width_32_height_32_" height="24px" alt="" />
                 ))}
               </p>
             </Grid.Column>

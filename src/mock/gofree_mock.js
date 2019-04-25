@@ -86,11 +86,11 @@ gofree_mock.onGet('/get-trip').reply(config => new Promise(((resolve, reject) =>
       trips: [
         {
           day: '1',
-          trip: ['断桥残雪(10分钟)', '白堤(20分钟)', '杭州酒家曲院风荷(1小时)', '苏堤春晓(30分钟)', '天伦里餐厅汉庭酒店'],
+          trip: ['西湖(10分钟)', '断桥残雪(20分钟)', '曲院风荷(1小时)', '楼外楼(孤山路店)(30分钟)', '汉庭酒店'],
         },
         {
           day: '2',
-          trip: ['柳浪闻莺(1小时)', '雷峰塔(2小时)', '龙井村(2小时)', '九溪烟树(1.5小时)', '钱塘江大桥(20分钟)'],
+          trip: ['柳浪闻莺(1小时)', '雷峰塔(2小时)', '龙井村(2小时)', '九溪烟树(1.5小时)'],
         },
         {
           day: '3',
@@ -139,48 +139,55 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
               name: '断桥残雪',
             },
             {
-              x: 120.157069,
-              y: 30.263205,
+              x: 120.139927,
+              y: 30.255807,
               placeId: 3,
               type: 2,
-              name: '白堤',
+              name: '曲院风荷',
             },
-            {
-              x: 120.146286,
-              y: 30.257394,
-              placeId: 4,
-              type: 0,
-              name: '孤山公园',
-            },
-          ],
-          [
             {
               x: 120.147227,
               y: 30.256825,
-              placeId: 5,
+              placeId: 4,
               type: 0,
               name: '楼外楼(孤山路店)',
             },
             {
-              x: 120.139927,
-              y: 30.255807,
+              x: 120.117137,
+              y: 30.274968,
+              placeId: 5,
+              type: 0,
+              name: '汉庭酒店',
+            },
+          ],
+          [
+            {
+              x: 120.162605,
+              y: 30.245792,
+              placeId: 5,
+              type: 0,
+              name: '柳浪闻莺公园',
+            },
+            {
+              x: 120.155358,
+              y: 30.236839,
               placeId: 6,
               type: 0,
-              name: '曲院风荷',
+              name: '雷峰塔',
             },
             {
-              x: 120.14437,
-              y: 30.250088,
+              x: 120.116337,
+              y: 30.226336,
               placeId: 7,
               type: 0,
-              name: '苏堤春晓',
+              name: '龙井村',
             },
             {
-              x: 120.146626,
-              y: 30.236862,
+              x: 120.119643,
+              y: 30.208948,
               placeId: 8,
               type: 0,
-              name: '花港观鱼',
+              name: '九溪烟树',
             },
           ],
           [
@@ -251,7 +258,7 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
       destination: '杭州',
       start: '2017/12/05',
       end: '2017/12/15',
-      price: 2000,
+      price: 5780,
       /** 地点信息* */
       places: [
         [
@@ -356,101 +363,79 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
         ], [
           {
             placeId: 1,
-            name: '西湖',
-            score: 4.9,
-            zanNum: 1321,
+            name: '柳浪闻莺',
+            score: 4.8,
+            zanNum: 230,
             tags: [
-              '情侣出行',
-              '风景名胜',
-              '必去',
+              '环境清幽',
+              '休闲胜地',
             ],
-            description: '旅行方式目的地出发时间返程时间民俗特色杭州2018-04-142018-04-18西湖西湖无疑是杭州之美的代表，著名的“西湖十景”环绕湖边，自然与人文相互映衬，组成了杭州旅行的核心地带。你不必执着于走遍每个景点，倒可以花上半天或一天在湖边徜徉一番，无论怎么玩，都让人心情舒畅。旅行方式目的地出发时间返程时间民俗特色杭州2018-04-142018-04-18西湖西湖无疑是杭州之美的代表，著名的“西湖十景”环绕湖边，自然与人文相互映衬，组成了杭州旅行的核心地带。你不必执着于走遍每个景点，倒可以花上半天或一天在湖边徜徉一番，无论怎么玩，都让人心情舒畅。',
-            price: 320,
+            description: '柳浪闻莺是西湖十景之一，位于西湖东南岸，清波门处的大型公园，是人们放松身心的好地方。南宋时为帝王御花园，称聚景园，清代恢复柳浪闻莺旧景。园林布局开朗、清新、雅丽、朴实。柳丛衬托着紫楠、雪松、广玉兰及碧桃、海棠、月季等异木名花。是欣赏西子浓妆淡抹的观景佳地。 清幽的环境也很受老年人欢迎，往来的游客也会在此休憩。',
+            price: 280,
             imgs: [
-              'https://i0.hippopx.com/photos/640/861/188/the-summer-palace-kunming-lake-beijing-preview.jpg',
-              'https://i0.hippopx.com/photos/579/914/396/hangzhou-west-lake-ching-ming-ship-preview.jpg',
-              'https://i0.hippopx.com/photos/66/390/567/west-lake-the-scenery-character-sunset-preview.jpg',
-              'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
-              'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
+              'https://i0.hippopx.com/photos/645/975/619/willow-hiroshima-natural-summer-preview.jpg',
+              'https://i0.hippopx.com/photos/962/123/630/weeping-willow-pasture-baumm-willow-tree-preview.jpg',
+              'https://i0.hippopx.com/photos/268/946/404/willow-way-country-road-spring-preview.jpg',
+              'https://i0.hippopx.com/photos/603/34/549/willow-lake-water-reflection-preview.jpg',
             ],
             type: 0, // (0 景点  1 酒店 2 饭店)
           },
           {
             placeId: 2,
-            name: '断桥残雪',
+            name: '雷峰塔',
             score: 5.0,
-            zanNum: 123,
+            zanNum: 2029,
             tags: [
-              '家庭出游',
-              '冬天很美',
+              '经典名胜',
+              '标志建筑',
             ],
-            description: '是《白蛇传》中许仙、白娘子的相会之地，也给这座长桥平添许多浪漫色彩。冬雪初下，桥的阳面冰雪消融，但阴面仍被残雪覆盖，从高处看桥似断非断，形成著名的“断桥残雪”。可以作为游玩西湖的起点。从断桥上白堤去孤山，依次游玩西湖周边的各个景点。',
-            price: 120,
+            description: '是西湖的标志性景点，由吴越国王钱弘俶因为王妃生子而建，如今更多是因为《白蛇传》而闻名。“雷峰如老衲，保俶如美人”。雷峰塔与保俶塔隔湖相对，呈现“一湖映双塔，南北相对峙”的美景。每当夕阳西下，塔影横空，别有一番景色，故被称为“雷峰夕照”。',
+            price: 70,
             imgs: [
-              'https://i0.hippopx.com/photos/222/216/35/sunset-west-lake-hanoi-vietnam-preview.jpg',
-              'https://i0.hippopx.com/photos/359/587/580/china-hangzhou-west-lake-sunset-preview.jpg',
-              'https://i0.hippopx.com/photos/496/893/91/west-lake-sunset-bridges-silhouette-preview.jpg',
-              'https://i0.hippopx.com/photos/246/97/299/peaceful-lake-tree-lake-side-preview.jpg',
-              'https://i0.hippopx.com/photos/767/79/618/northern-california-lake-mendocino-ducks-in-a-row-lake-preview.jpg',
+              'https://i0.hippopx.com/photos/842/130/347/west-lake-in-summer-pagoda-hangzhou-pagoda-leifeng-pagoda-preview.jpg',
+              'http://n2-q.mafengwo.net/s6/M00/90/F3/wKgB4lKbQL6AUh2NAAIYXevlHHU11.jpeg?imageMogr2%2Fthumbnail%2F%21690x370r%2Fgravity%2FCenter%2Fcrop%2F%21690x370%2Fquality%2F100',
+              'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556463778&di=f7ee1b43cbeddd47251ae90d618fbc3b&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161116%2Fe508e28a85db4e77bac3fca20b4e53a3_th.jpeg',
+              'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555869059481&di=4840525cec01c9df6e3a4a233b4364f2&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20171009%2F2c56944ffe1548bf93efaeaa5aa8cbc4.jpeg',
             ],
             type: 0, // (0 景点  1 酒店 2 饭店)
           },
           {
             placeId: 3,
-            name: '曲院风荷',
+            name: '龙井村',
             score: 4.5,
-            zanNum: 121,
+            zanNum: 280,
             tags: [
-              '荷花超美',
-              '放松身心',
+              '群山环抱',
+              '云雾缭绕',
             ],
-            description: '西湖十景之一，其所在的风荷公园内栽培了上百个品种的荷花，夏季显出分外迷人的吸引力。南宋时，此地有一座官家酿酒作坊，取金沙涧的溪水造曲酒。附近种有菱荷，每当夏日风起，酒香荷香沁人心脾，故称“曲院风荷”。 莲叶田田，菡萏妖娆。水面上架设了造型各异的小桥，人从桥上过，如在荷中行。',
-            price: 80,
+            description: '龙井村位于西湖风景名胜区西南面，四面群山环抱，呈北高南低的趋势，村内常住人口约800多人，拥有近800亩的高山茶园，村的西北面北高峰，狮子峰，天竺峰形成一道天然屏障，挡住 西北寒风的侵袭。南面为九溪，溪谷深广，直通钱塘江，春夏季的东南风易入山谷，通风通气的地理条件为龙井茶的生长提供了得天独厚的优势。这里出产的龙井茶位居“狮，龙，云，虎”之首。相传乾隆皇帝下江南时，曾到龙井村狮峰山下的胡公庙品尝西湖龙井茶。饮后赞不绝口，并将庙前十八棵茶树封为“御茶”。“茶乡第一村”——龙井村，因盛产顶级西湖龙井茶而闻名于世。东临西子湖，西依五云山，南靠滔滔东去的钱塘江水，北抵插入云端的南北高峰，四周群山叠翠，云雾环绕，就如一颗镶嵌在西子湖畔的翡翠宝石。',
+            price: 20,
             imgs: [
-              'https://i0.hippopx.com/photos/918/177/197/china-hangzhou-west-lake-preview.jpg',
-              'https://i0.hippopx.com/photos/307/98/487/lake-hangzhou-the-scenery-preview.jpg',
-              'https://i0.hippopx.com/photos/914/640/967/hangzhou-the-scenery-humanities-preview.jpg',
-              'https://i0.hippopx.com/photos/581/364/879/hangzhou-the-landscape-between-scenery-botanical-garden-preview.jpg',
+              'https://i0.hippopx.com/photos/800/80/853/tour-tea-gardens-nature-preview.jpg',
+              'https://i0.hippopx.com/photos/94/544/881/spring-alpine-tea-garden-preview.jpg',
+              'https://i0.hippopx.com/photos/445/861/85/jeju-green-tea-plantation-nature-tea-plantation-preview.jpg',
             ],
             type: 0, // (0 景点  1 酒店 2 饭店)
           },
           {
             placeId: 4,
-            name: '楼外楼(孤山路店)',
-            score: 4.7,
-            zanNum: 116,
+            name: '九溪烟树',
+            score: 4.6,
+            zanNum: 329,
             tags: [
               '西湖醋鱼',
               '老字号',
               '农井虾仁',
             ],
-            description: '杭帮菜老字号，古诗有云：“西湖醋鱼何处美，独数杭州楼外楼”',
-            price: 180,
+            description: '俗称“九溪十八涧”，是由众多小溪流汇合而成的“Y”字形溪涧，每逢雨后，附近八觉山上的树林烟雾升腾，满谷迷蒙，形成好看的“烟树”景观。九溪长约5.5公里，沿着溪流是葱茏的树木和大片的茶园，是绝佳的避暑圣地。有三个出入口，即“Y”字左上的龙井村、右上的杨梅岭，以及下方的九溪路。中间交汇的地方，叫做“溪中溪”，九溪烟树公园、理安寺、瀑布等景点都集中在这里。可以自行选择路线，但比较推荐的走法是九溪路-溪中溪-龙井村。除步行外，九溪路-溪中溪-杨梅岭路段可以自驾，景区内有停车场。',
+            price: 110,
             imgs: [
-              'https://i0.hippopx.com/photos/313/831/719/shrimp-seafood-mexican-food-preview.jpg',
-              'https://i0.hippopx.com/photos/544/231/706/take-food-bowl-vegetables-preview.jpg',
-              'https://i0.hippopx.com/photos/120/420/848/food-lip-delicious-food-preview.jpg',
+              'https://i0.hippopx.com/photos/553/204/1015/river-water-streams-preview.jpg',
+              'https://i0.hippopx.com/photos/9/707/743/waterfall-streams-mountain-forest-preview.jpg',
+              'https://i0.hippopx.com/photos/209/673/97/sea-creeks-marseille-preview.jpg',
+              'https://i0.hippopx.com/photos/378/690/435/forest-bach-trees-mountain-stream-preview.jpg',
             ],
             type: 2, // (0 景点  1 酒店 2 饭店)
-          },
-          {
-            placeId: 5,
-            name: '汉庭酒店',
-            score: 4.9,
-            zanNum: 239,
-            tags: [
-              '店员热情',
-              '大床很舒服',
-            ],
-            description: '汉庭酒店是华住酒店集团的创始品牌。华住创始人季琦先生，在连续成功创办了“携程旅行网”(NASDAQ:CTRP)、“如家快捷酒店”(NASDAQ:HMIN) 两家纳斯达克上市公司之后，于2005年第三次创业，推出汉庭酒店，并曾一度以“汉庭”命名集团，后于2012年正式启用“华住”作为集团名称。',
-            price: 250,
-            imgs: [
-              'https://i0.hippopx.com/photos/690/622/456/hotel-hallway-hotel-hallway-lights-preview.jpg',
-              'https://i0.hippopx.com/photos/967/606/545/bed-double-bed-hotel-room-preview.jpg',
-              'https://i0.hippopx.com/photos/337/289/143/hotel-podjavorn%C3%ADk-suite-preview.jpg',
-              'https://i0.hippopx.com/photos/290/85/260/hotel-guest-room-new-preview.jpg',
-            ],
-            type: 1, // (0 景点  1 酒店 2 饭店)
           },
         ], [
           {
@@ -658,20 +643,20 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
           {
             fromToName: '西湖 - 断桥残雪',
             description: '驾车约30分钟，相距3.1公里',
-            price: 27,
+            price: 45,
             type: 0, // (0 驾车  1 公交 2 步行)
           },
           {
             fromToName: '断桥残雪 - 曲院风荷',
             description: '驾车约50分钟，相距4.7公里',
-            price: 45,
+            price: 70,
             type: 0, // (0 驾车  1 公交 2 步行)
           },
           {
             fromToName: '曲院风荷 - 楼外楼(孤山路店)',
             description: '步行约10分钟，相距1公里',
-            price: 0,
-            type: 2, // (0 驾车  1 公交 2 步行)
+            price: 120,
+            type: 0, // (0 驾车  1 公交 2 步行)
           },
           {
             fromToName: '楼外楼(孤山路店) - 汉庭酒店',
@@ -681,29 +666,29 @@ gofree_mock.onGet('/get-line').reply(config => new Promise(((resolve, reject) =>
           },
         ], [
           {
-            fromToName: '西湖 - 断桥残雪',
+            fromToName: '柳浪闻莺 - 雷峰塔',
             description: '驾车约30分钟，相距3.1公里',
             price: 27,
             type: 0, // (0 驾车  1 公交 2 步行)
           },
           {
-            fromToName: '断桥残雪 - 曲院风荷',
+            fromToName: '雷峰塔 - 龙井村',
             description: '驾车约50分钟，相距4.7公里',
             price: 45,
             type: 0, // (0 驾车  1 公交 2 步行)
           },
           {
-            fromToName: '曲院风荷 - 楼外楼(孤山路店)',
+            fromToName: '龙井村 - 九溪烟树',
             description: '步行约10分钟，相距1公里',
             price: 2,
             type: 2, // (0 驾车  1 公交 2 步行)
           },
-          {
-            fromToName: '楼外楼(孤山路店) - 汉庭酒店',
-            description: '公交约15分钟，相距3公里',
-            price: 2,
-            type: 1, // (0 驾车  1 公交 2 步行)
-          },
+          // {
+          //   fromToName: '楼外楼(孤山路店) - 汉庭酒店',
+          //   description: '公交约15分钟，相距3公里',
+          //   price: 2,
+          //   type: 1, // (0 驾车  1 公交 2 步行)
+          // },
         ], [
           {
             fromToName: '西湖 - 断桥残雪',
