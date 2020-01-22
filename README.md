@@ -3,7 +3,7 @@
 ## 介绍
 自在行客是一款基于人工智能技术的个性化推荐引擎网站，可以根据每个用户的兴趣、出游偏好以及消费能力等多个维度进行自助游行程的推荐与规划。目的是力图解决用户在安排行程规划过程中，旅游信息过载、难以做出最佳出游决策等痛点，达到个性化定制的目的。依靠AI技术代替用户扎入到过剩的网络出游信息中，将用户从大数据的汪洋大海中真正解救出来，能够真正的做到轻轻松的说走就走。:pig:
 
-在线地址：[https://gofree.algbb.fun/](https://gofree.algbb.fun/)
+在线地址：[https://gofree.algbb.fun/](https://gofree.algbb.fun/)（已过期）
 
 ## 技术选型
 
@@ -18,15 +18,17 @@
 
 ## 运行截图
 
-![](https://cdn.algbb.fun/gofree/%E9%A6%96%E9%A1%B5.png)
+### 行程推荐
+![](http://cdn.algbb.cn/screenshots/gofree/推荐.png)
 
-![](https://cdn.algbb.fun/gofree/%E6%8E%A8%E8%8D%90.png)
+### 行程概览
+![](http://cdn.algbb.cn/screenshots/gofree/行程概览.png)
 
-![](https://cdn.algbb.fun/gofree/%E8%A1%8C%E7%A8%8B%E6%A6%82%E8%A7%88.png)
+### 行程详情
+![](http://cdn.algbb.cn/screenshots/gofree/行程详情.png)
 
-![](https://cdn.algbb.fun/gofree/%E8%A1%8C%E7%A8%8B%E8%AF%A6%E6%83%85.png)
-
-![](https://cdn.algbb.fun/gofree/%E8%A1%8C%E7%A8%8B%E6%9B%BF%E6%8D%A2.png)
+### 行程替换
+![](http://cdn.algbb.cn/screenshots/gofree/行程替换.png)
 
 ## 安装运行
 
